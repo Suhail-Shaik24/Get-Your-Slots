@@ -1,4 +1,4 @@
-import Logo from "./Logo.png";
+import Logo from "./Logo.svg";
 import HeroImage from "./heroSection_image.png";
 import HeroBg from "./HeroBg.png";
 import ArrowWhite from "./Arrow-white.svg";
@@ -17,6 +17,8 @@ import Gmail from "./Gmail-2.svg";
 import TechnicalSupport from "./Technical-Support.svg";
 import Calender from "./calender.svg";
 import Logo2 from "./logo-1.svg"
+import Hamburger from "./hamburger.svg"
+import SmallRectangle from "./Small-Rectangle.svg"
 
 export{
 
@@ -38,6 +40,8 @@ export{
     WhatsApp2,
     Gmail,
     TechnicalSupport,
-    Calender
+    Calender,
+    Hamburger,
+    SmallRectangle
     
 }

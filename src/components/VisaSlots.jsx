@@ -1,6 +1,7 @@
-import { React, useState } from 'react'
-import { Provisions2, FormVisaSlot } from "../components";
+import { React } from 'react'
+import { Provisions2 } from "../components";
 import { useNavigate } from 'react-router-dom';
+import "../css/RealTime.css"
 
 
 const VisaSlots = () => {
@@ -13,28 +14,42 @@ const VisaSlots = () => {
     };
 
     return (
-        <div className="Visa-Slots bg-[#a3663c] flex flex-col gap-6 px-8 py-6 rounded-lg">
-            <div className="heading">
-                <h1 className='text-3xl text-white font-semibold'> VISA Slot Booking </h1>
-                <hr className='bg-white h-[0.125rem] rounded-full w-[50%]' />
+        <div className="Visa-Slots bg-[#a3663c] flex flex-col gap-2 p-3 lg:gap-6 lg:px-8 lg:py-6 rounded lg:rounded-lg">
+            <div className="heading flex flex-col gap-1">
+                <h1 className='text-xl lg:text-3xl text-white font-semibold'> VISA Slot Booking </h1>
+                <hr className='bg-white h-[0.125rem] rounded-full w-3/4]' />
             </div>
-            <div className="Visa-Slots flex gap-8">
+            <div className="plans-container2 grid grid-cols-2 gap-2 sml:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 justify-center items-center">
 
-                <div className="plan1 bg-white p-6 w-80 rounded-md flex flex-col gap-8 items-center">
-                    <h1 className="font-['Open_Sans'] text-2xl font-bold text-center">VISA Booking- <br /> Fresher VISA</h1>
-                    <h1 className="Price font-['Times_New_Roman'] text-[#a3663c] text-4xl font-bold text-center"> ₹9999 </h1>
+                <div className="plan1 bg-white p-3 h-fit lg:p-6 rounded-md flex flex-col gap-2 lg:gap-8 justify-center items-center">
+                    <h1 className="font-['Open_Sans'] text-sm lg:text-2xl font-bold text-center">VISA Booking- <br /> Fresher VISA</h1>
+                    <h1 className="Price font-['Times_New_Roman'] text-[#a3663c] text-2xl lg:text-4xl font-bold text-center"> ₹9999 </h1>
                     <div className='w-full'>
                         <Provisions2 />
                     </div>
                     <button
-                        className='bg-[#A3663C] text-white text-center text-sm font-semibold font-["Open_Sans"] px-5 py-3 rounded-md flex gap-2 items-center'
+                        className='bg-[#A3663C] w-3/5 border text-white text-[12px] p-1 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-[10px] sml:p-2 md:text-xs md:p-2 md:w-4/5 md:rounded-md lg:text-sm lg:p-2 lg:px-5 lg:rounded-md'
                         type="button"
                         onClick={handleButtonClick}>
                         <p>Get Started</p>
                     </button>
                 </div>
 
-                <div className="plan2 bg-white p-6 w-80 rounded-md flex flex-col gap-8 items-center">
+                <div className="plan2 bg-white p-3 h-fit lg:p-6 rounded-md flex flex-col gap-2 lg:gap-8 justify-center items-center">
+                    <h1 className="font-['Open_Sans'] text-sm lg:text-2xl font-bold text-center">VISA Booking- <br /> Refused VISA</h1>
+                    <h1 className="Price font-['Times_New_Roman'] text-[#a3663c] text-2xl lg:text-4xl font-bold text-center"> ₹14999 </h1>
+                    <div className='w-full'>
+                        <Provisions2 />
+                    </div>
+                    <button
+                        className='bg-[#A3663C] w-3/5 border text-white text-[12px] p-1 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-[10px] sml:p-2 md:text-xs md:p-2 md:w-4/5 md:rounded-md lg:text-sm lg:p-2 lg:px-5 lg:rounded-md'
+                        type="button"
+                        onClick={handleButtonClick}>
+                        <p>Get Started</p>
+                    </button>
+                </div>
+
+                {/* <div className="plan2 bg-white p-6 rounded-md flex flex-col gap-8 items-center">
                     <h1 className="font-['Open_Sans'] text-2xl font-bold text-center">VISA Booking- <br /> Refused VISA </h1>
                     <h1 className="Price font-['Times_New_Roman'] text-[#a3663c] text-4xl font-bold text-center">₹14999</h1>
                     <div className='w-full '>
@@ -43,7 +58,7 @@ const VisaSlots = () => {
                     <button className='bg-[#A3663C] text-white text-center text-sm font-semibold font-["Open_Sans"] px-5 py-3 rounded-md flex gap-2 items-center' type="button">
                         <p>Get Started</p>
                     </button>
-                </div>
+                </div> */}
 
 
             </div>
