@@ -22,7 +22,7 @@ const VisaSlots = () => {
             <div className="plans-container2 grid grid-cols-2 gap-2 sml:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 justify-center items-center">
 
                 <div className="plan1 bg-white p-3 h-fit lg:p-6 rounded-md flex flex-col gap-2 lg:gap-8 justify-center items-center">
-                    <h1 className="font-['Open_Sans'] text-sm lg:text-2xl font-bold text-center">VISA Booking- <br /> Fresher VISA</h1>
+                    <h1 className="font-['Open_Sans'] text-sm lg:text-2xl font-bold text-center">VISA Booking-<br /> Fresher VISA</h1>
                     <h1 className="Price font-['Times_New_Roman'] text-[#a3663c] text-2xl lg:text-4xl font-bold text-center"> ₹9999 </h1>
                     <div className='w-full'>
                         <Provisions2 />
@@ -48,18 +48,6 @@ const VisaSlots = () => {
                         <p>Get Started</p>
                     </button>
                 </div>
-
-                {/* <div className="plan2 bg-white p-6 rounded-md flex flex-col gap-8 items-center">
-                    <h1 className="font-['Open_Sans'] text-2xl font-bold text-center">VISA Booking- <br /> Refused VISA </h1>
-                    <h1 className="Price font-['Times_New_Roman'] text-[#a3663c] text-4xl font-bold text-center">₹14999</h1>
-                    <div className='w-full '>
-                        <Provisions2 />
-                    </div>
-                    <button className='bg-[#A3663C] text-white text-center text-sm font-semibold font-["Open_Sans"] px-5 py-3 rounded-md flex gap-2 items-center' type="button">
-                        <p>Get Started</p>
-                    </button>
-                </div> */}
-
 
             </div>
         </div>
