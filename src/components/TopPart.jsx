@@ -4,7 +4,7 @@ import { Navbar } from '../components'
 
 const TopPart = () => {
     return (
-        <div className="p-4 bg-[url('assets/Small-Rectangle.png')] md:p-8 lg:p-12 lg:bg-[url('assets/heroBg.png')] md:bg-[url('assets/heroBg.png')] bg-right-top bg-no-repeat bg-cover">
+        <div className="p-4 md:p-5 lg:p-12 bg-[url('assets/Small-Rectangle.png')] lg:bg-[url('assets/heroBg.png')] md:bg-[url('assets/heroBg.png')] bg-right-top bg-no-repeat bg-cover">
             <Navbar />
 
             <div className="heroSec h-60 lg:h-96 flex justify-between items-center">

@@ -11,9 +11,10 @@ import VisaSlots from './VisaSlots';
 import FormVisaSlot from "./FormVisaSlot";
 import Footer from "./Footer";
 import NotFound from "./NotFound";
-import FormComponent from "./FormComponent";
 import TestimonialsSection from "./TestimonialsSection";
 import Testimonial from "./Testimonial.jsx"
+import TestimonialsArray from "./TestimonialsArray.jsx";
+import ContactUs from "./ContactUs.jsx";
 
 export{
     
@@ -22,7 +23,6 @@ export{
     TopPart,
     Features,
     Subscriptions,
-    FormComponent,
     Provisions1,
     Provisions2,
     RealTimeAlerts,
@@ -31,7 +31,9 @@ export{
     FormVisaSlot,
     TestimonialsSection,
     Testimonial,
+    TestimonialsArray,
     Footer,
+    ContactUs,
     NotFound
     
 }

@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     margin-left: 1rem;
-    padding: 1rem 1rem 1rem 2rem;
+    padding: 0.5rem 0.8rem;
     border: 0px black;
     position: relative;
     cursor: pointer;
@@ -43,10 +43,15 @@
     padding-left: 1em;
     color: var(--secondary);
     border-radius: 0.5rem;
-    width: 25%;
+    width: 75%;
     height: 100%;
     background: var(--primary);
     border: 0;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+}
 
+@media (min-width: 1024px) {
+    .label-name {
+        padding: 1rem 1rem 1rem 2rem;
+    }
 }
