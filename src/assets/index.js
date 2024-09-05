@@ -1,6 +1,6 @@
 import Logo from "./Logo.svg";
 import HeroImage from "./heroSection_image.png";
-import HeroBg from "./HeroBg.png";
+import HeroBg from "./heroBg.png";
 import ArrowWhite from "./Arrow-white.svg";
 import ArrowBlack from "./Arrow-black.svg";
 import RealTimeAlerts from "./feature1Illustration.png";
