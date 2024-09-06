@@ -1,5 +1,6 @@
 import Logo from "./Logo.svg";
 import HeroImage from "./heroSection_image.png";
+import filteredHeroImage from './filteredHeroImage.png';
 import HeroBg from "./heroBg.png";
 import ArrowWhite from "./Arrow-white.svg";
 import ArrowBlack from "./Arrow-black.svg";
@@ -16,9 +17,9 @@ import WhatsApp2 from "./WhatsApp-2.svg";
 import Gmail from "./Gmail-2.svg";
 import TechnicalSupport from "./Technical-Support.svg";
 import Calender from "./calender.svg";
-import Logo2 from "./logo-1.svg"
-import Hamburger from "./hamburger.svg"
-import SmallRectangle from "./Small-Rectangle.svg"
+import Logo2 from "./logo-1.svg";
+import Hamburger from "./hamburger.svg";
+import SmallRectangle from "./Small-Rectangle.svg";
 
 export{
 
@@ -42,6 +43,7 @@ export{
     TechnicalSupport,
     Calender,
     Hamburger,
-    SmallRectangle
+    SmallRectangle,
+    filteredHeroImage
     
 }
