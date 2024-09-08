@@ -8,7 +8,7 @@ const TopPart = () => {
         <div className="top-part p-4 bg-[url('assets/heroBg.png')] bg-right-top bg-no-repeat bg-cover md:p-5 lg:p-12 lg:bg-[url('assets/heroBg.png')] md:bg-[url('assets/heroBg.png')] ">
             <Navbar />
 
-            <div className="heroSec h-80 lg:h-96 bg-[url('assets/filteredHeroImage.png')] lg:bg-none md:bg-none bg-center bg-no-repeat flex justify-between items-center">
+            <div className="heroSec h-80 lg:h-96 bg-[url('assets/filteredHeroImage.png')] lg:bg-none md:bg-none bg-center bg-no-repeat flex justify-center lg:justify-between items-center">
 
                 <div className="left font-['Times_New_Roman'] flex flex-col gap-6 lg:gap-8 lg:w-[50%] lg:mt-20">
                     <div className="content flex flex-col gap-1 lg:gap-3">
