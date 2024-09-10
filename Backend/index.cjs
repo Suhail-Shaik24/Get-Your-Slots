@@ -34,7 +34,7 @@ const swaggerOptions = {
             }
         ]
     },
-    apis: ['*.js']
+    apis: ['index.cjs']
 };
 const swaggerDocs = swaggerjsdoc(swaggerOptions);
 app.use('/api-docs', swaggerui.serve, swaggerui.setup(swaggerDocs));
