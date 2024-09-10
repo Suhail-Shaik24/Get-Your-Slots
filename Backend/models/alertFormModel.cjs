@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+const mongoose = require("mongoose");
 
 const entry = mongoose.Schema({
     fname: String,
@@ -6,5 +6,7 @@ const entry = mongoose.Schema({
     pnum: String,
     email: String,
     visatype: String,
-    appointment: String
-})
+    subplan: String
+});
+
+module.exports = mongoose.model('RealTimeAlerts', entry);
