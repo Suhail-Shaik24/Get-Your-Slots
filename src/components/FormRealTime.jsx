@@ -1,21 +1,31 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { Navbar, ContactUs } from '../components'
 import { ArrowWhite } from '../assets';
-import { ContactUs } from '../components'
 import '../css/Form.css';
-import { Navbar } from '../components'
 
 const FormRealTime = () => {
 
   const [visaType, setVisaType] = useState('');
+  const [submissionError, setSubmissionError] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate('/real-time-alerts-form-submitted');
+    console.log("Success");
+  };
 
   const handleVisaTypeChange = (e) => {
     setVisaType(e.target.value);
   };
+
   const [formData, setFormData] = useState({
     FirstName: '',
     LastName: '',
     PhoneNumber: '',
     Email: '',
+    VisaType: '',
     RealTimeAlertsPrice: '',
   });
 
@@ -44,16 +54,22 @@ const FormRealTime = () => {
       },
       body: JSON.stringify(formData),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Success:', data);
-        // Handle success (e.g., show a success message or redirect)
+      .then((response) => {
+        if (response.ok) {
+          // On successful submission, set the formSubmitted to true and navigate
+          setFormSubmitted(true);
+          navigate('/real-time-alerts-form-submitted', { state: { success: true } });
+        } else {
+          setSubmissionError(true);
+        }
+        return response.json();
       })
       .catch((error) => {
         console.error('Error:', error);
-        // Handle error (e.g., show an error message)
+        setSubmissionError(true);
       });
   };
+
   return (
     <div className="p-4 md:p-5 lg:p-12 flex flex-col gap-3">
       <Navbar />
@@ -139,7 +155,7 @@ const FormRealTime = () => {
                     name="VisaType"
                     value="F1-Visa"
                     required
-                    onChange={handleVisaTypeChange} />
+                    onChange={(e) => { handleVisaTypeChange(e); handleInputChange(e); }} />
                   <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="F1-Visa">F1 Visa</label>
                 </div>
                 <div className="option2 flex">
@@ -150,7 +166,7 @@ const FormRealTime = () => {
                     name="VisaType"
                     value="B1/B2-Visa"
                     required
-                    onChange={handleVisaTypeChange} />
+                    onChange={(e) => { handleVisaTypeChange(e); handleInputChange(e); }} />
                   <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="B1/B2-Visa">B1/B2 Visa</label>
                 </div>
               </div>
@@ -228,15 +244,16 @@ const FormRealTime = () => {
             </div>
 
             {/* Submit Button */}
-            <button 
-              type="submit" 
-              value="Proceed" 
+            <button
+              type="submit"
+              value="Proceed"
+              onClick={handleButtonClick}
               className="submit-button flex bg-[#A3663C] text-lg lg:text-xl text-white w-fit font-semibold p-2 lg:p-3 px-5 lg:px-10 rounded-full gap-2 items-center hover:cursor-pointer">
               <p>Proceed</p>
               <img className='w-5 hover:cursor-pointer ' src={ArrowWhite} alt="Arrow" />
             </button>
-
           </form>
+          {submissionError && <p className="text-red-500"> An error occurred. Please try again.</p> }
           {/* Contact Us */}
           <hr className='bg-[#a3663c] rounded-full h-[0.125rem]' />
           <ContactUs />

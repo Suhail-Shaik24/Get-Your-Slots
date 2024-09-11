@@ -7,6 +7,7 @@ import Provisions1 from './Provisions1';
 import Provisions2 from './Provisions2';
 import RealTimeAlerts from './RealTimeAlerts';
 import FormRealTime from "./FormRealTime";
+import SuccessRealTimeAlerts from "./SuccessRealTimeAlerts";
 import VisaSlots from './VisaSlots';
 import FormVisaSlot from "./FormVisaSlot";
 import Footer from "./Footer";
@@ -27,6 +28,7 @@ export{
     Provisions2,
     RealTimeAlerts,
     FormRealTime,
+    SuccessRealTimeAlerts,
     VisaSlots,
     FormVisaSlot,
     TestimonialsSection,
