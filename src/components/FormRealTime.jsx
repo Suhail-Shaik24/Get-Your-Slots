@@ -23,23 +23,26 @@ const FormRealTime = () => {
 
         <div className="form-super-container -mt-60 lg:-mt-56 w-[96%] p-6 lg:p-12 lg:px-20 bg-white rounded-lg lg:rounded-xl border-2 border-[#a3663c] flex flex-col gap-6 lg:gap-8">
 
-          <form className='form flex flex-col gap-4 md:gap-6 lg:gap-8' action="/" method="POST">
+          <form
+            className='form flex flex-col gap-4 md:gap-6 lg:gap-8'
+            action="/api/v1/form/real-time-alerts"
+            method="POST"> 
 
             <div className="names grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
               <div className="firstName flex flex-col gap-3">
                 <label className='text-base lg:text-lg font-semibold'> First Name: </label>
-                <input className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10' type="text" name='First Name' placeholder='First Name' required />
+                <input className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10' type="text" name='FirstName' placeholder='First Name' required />
               </div>
               <div className="lastName flex flex-col gap-3">
                 <label className='text-base lg:text-lg font-semibold'> Last Name: </label>
-                <input className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10' type="text" name='Last Name' placeholder='Last Name' required />
+                <input className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10' type="text" name='LastName' placeholder='Last Name' required />
               </div>
             </div>
 
             <div className="contact grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
               <div className="phone-number flex flex-col gap-3">
                 <label className='text-base lg:text-lg font-semibold' > Phone Number (WhatsApp): </label>
-                <input className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10' type="tel" name='Phone Number' placeholder="Phone Number" pattern="[0-9]{10}" required />
+                <input className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10' type="tel" name='PhoneNumber' placeholder="Phone Number" pattern="[0-9]{10}" required />
               </div>
               <div className="email flex flex-col gap-3">
                 <label className='text-base lg:text-lg font-semibold' > Email: </label>
@@ -51,7 +54,7 @@ const FormRealTime = () => {
             <div className="visa-type-details grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
               {/* VISA Type Selection */}
               <div className="visa-type flex flex-col gap-2">
-                <div className="heading flex flex-col gap-1">
+                <div className="heading flex flex-co- gap-1">
                   <h1 className='text-base lg:text-lg font-semibold'>VISA Type <span className='text-sm'>(Select One)</span>:</h1>
                   <hr className='bg-[#a3663c] rounded-full h-[0.125rem] w-3/4' />
                 </div>
@@ -60,7 +63,7 @@ const FormRealTime = () => {
                     className='radio-button'
                     type="radio"
                     id="F1-Visa"
-                    name="Visa-Type"
+                    name="VisaType"
                     value="F1-Visa"
                     required
                     onChange={handleVisaTypeChange} />
@@ -71,7 +74,7 @@ const FormRealTime = () => {
                     className='radio-button'
                     type="radio"
                     id="B1/B2-Visa"
-                    name="Visa-Type"
+                    name="VisaType"
                     value="B1/B2-Visa"
                     required
                     onChange={handleVisaTypeChange} />
@@ -87,7 +90,7 @@ const FormRealTime = () => {
                   <h1 className='text-base lg:text-lg font-semibold'> Subscription Plans <span className='text-sm'>(Select One)</span>:</h1>
                   <hr className='bg-[#a3663c] rounded-full h-[0.125rem] w-11/12' />
                 </div>
-                {visaType === '' &&(
+                {visaType === '' && (
                   <p className='text-base font-semibold '>(Select a VISA Type to view Subscription Plans)</p>
                 )}
                 {visaType === 'F1-Visa' && (
@@ -95,11 +98,11 @@ const FormRealTime = () => {
                     <h4 className='text-sm font-semibold text-white bg-[#3a4740] p-3 rounded-r-full w-fit'> For F1 VISA Alerts </h4>
                     <div className="options flex flex-col gap-1 ">
                       <div className="option1 flex ">
-                        <input className='radio-button' type="radio" id="plan-1" name="real-time-alerts-F1-price" value="plan-1" required />
+                        <input className='radio-button' type="radio" id="plan-1" name="RealTimeAlerts_F1Price" value="plan-1" required />
                         <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-1"> ₹899 /30 days </label>
                       </div>
                       <div className="option2 flex">
-                        <input className='radio-button' type="radio" id="plan-2" name="real-time-alerts-F1-price" value="plan-2" required />
+                        <input className='radio-button' type="radio" id="plan-2" name="RealTimeAlerts_F1Price" value="plan-2" required />
                         <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-2">₹1099 /40 days</label>
                       </div>
                     </div>
@@ -110,11 +113,11 @@ const FormRealTime = () => {
                     <h4 className='text-sm font-semibold text-white bg-[#3a4740] p-3 rounded-r-full w-fit'> For B1/B2 VISA Alerts </h4>
                     <div className="options flex flex-col gap-1 ">
                       <div className="option1 flex ">
-                        <input className='radio-button' type="radio" id="plan-3" name="real-time-alerts-B1-price" value="plan-3" required />
+                        <input className='radio-button' type="radio" id="plan-3" name="RealTimeAlerts_B1Price" value="plan-3" required />
                         <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-3"> ₹1999 /30 days </label>
                       </div>
                       <div className="option2 flex">
-                        <input className='radio-button' type="radio" id="plan-4" name="real-time-alerts-B1-price" value="plan-4" required />
+                        <input className='radio-button' type="radio" id="plan-4" name="RealTimeAlerts_B1Price" value="plan-4" required />
                         <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-4">₹2399 /40 days</label>
                       </div>
                     </div>
