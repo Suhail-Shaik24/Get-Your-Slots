@@ -45,40 +45,40 @@ app.use('/api-docs', swaggerui.serve, swaggerui.setup(swaggerDocs));
  *     RealTimeAlert:
  *       type: object
  *       required:
- *         - fname
- *         - lname
- *         - pnum
- *         - email
- *         - visatype
- *         - subplan
+ *         - FirstName
+ *         - LastName
+ *         - PhoneNumber
+ *         - Email
+ *         - VisaType
+ *         - RealTimeAlertsPrice
  *       properties:
- *         fname:
+ *         FirstName:
  *           type: string
  *           description: First name of the user
- *         lname:
+ *         LastName:
  *           type: string
  *           description: Last name of the user
- *         pnum:
+ *         PhoneNumber:
  *           type: string
  *           description: Phone number of the user
- *         email:
+ *         Email:
  *           type: string
  *           description: Email address of the user
- *         visatype:
+ *         VisaType:
  *           type: string
  *           description: Type of visa user is applying for
- *         subplan:
+ *         RealTimeAlertsPrice:
  *           type: string
  *           description: Subscription plan the user has chosen
  *     VisaSlotBooking:
  *       type: object
  *       required:
- *         - fname
- *         - lname
- *         - pnum
- *         - email
- *         - visatype
- *         - subplan
+ *         - FirstName
+ *         - LastName
+ *         - PhoneNumber
+ *         - Email
+ *         - VisaType
+ *         - 
  *         - appointmenttype
  *       properties:
  *         fname:
