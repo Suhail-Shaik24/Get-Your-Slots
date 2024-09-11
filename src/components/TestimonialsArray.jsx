@@ -19,7 +19,7 @@ const TestimonialsArray = () => {
   ])
   return (
     <>
-      <div className="containers flex gap-4 py-[0.6rem] mt-11 z-10 animate-scroll rounded-lg">
+      <div className="containers flex gap-4 py-[0.6rem] mt-11 z-10 overscroll-none animate-scroll rounded-lg">
         {testimonialsArray.map((testimonial, index) => (
           <Testimonial key={index} author={testimonial.author} content={testimonial.content} />
         ))}
