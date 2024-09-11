@@ -11,7 +11,7 @@ const RTAEntry = require('./models/alertFormModel.cjs');
 const VSBEntry = require('./models/visaFormModel.cjs');
 const delayedAlert = require('./models/delayed-alertModel.cjs');
 
-mongoose.connect("mongodb://0.0.0.0:27017/GetYourSlots");
+mongoose.connect("mongodb+srv://fccdb:fccdb@cluster0.teunbos.mongodb.net/GetYourSlots?retryWrites=true&w=majority&appName=Cluster0");
 
 // Serve static files from the React app's build folder
 app.use(express.static(path.join(__dirname, '../dist')));
@@ -130,12 +130,12 @@ app.use('/api-docs', swaggerui.serve, swaggerui.setup(swaggerDocs));
  */
 app.post('/api/v1/form/real-time-alerts', async (req, res) => {
   const transformedData = transformFormData(req.body);
-  const fname = transformedData.fname;
-  const lname = transformedData.lname;
-  const pnum = transformedData.pnum;
-  const email = transformedData.email;
-  const visatype = transformedData.visatype;
-  const subplan = transformedData.subplan;
+  const fname = transformedData.FirstName;
+  const lname = transformedData.LastName;
+  const pnum = transformedData.PhoneNumber;
+  const email = transformedData.Email;
+  const visatype = transformedData.VisaType;
+  const subplan = transformedData.RealTimeAlerts_F1Price;
   
   const newUser = new RTAEntry({
     fname: fname,
