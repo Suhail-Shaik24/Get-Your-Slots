@@ -135,7 +135,7 @@ app.post('/api/v1/form/real-time-alerts', async (req, res) => {
   const pnum = transformedData.PhoneNumber;
   const email = transformedData.Email;
   const visatype = transformedData.VisaType;
-  const subplan = transformedData.RealTimeAlerts_F1Price;
+  const subplan = transformedData.RealTimeAlertsPrice;
   
   const newUser = new RTAEntry({
     fname: fname,
