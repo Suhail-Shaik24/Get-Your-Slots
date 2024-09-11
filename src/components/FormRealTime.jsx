@@ -11,6 +11,49 @@ const FormRealTime = () => {
   const handleVisaTypeChange = (e) => {
     setVisaType(e.target.value);
   };
+  const [formData, setFormData] = useState({
+    FirstName: '',
+    LastName: '',
+    PhoneNumber: '',
+    Email: '',
+    RealTimeAlertsPrice: '',
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Add form validation if needed
+    if (!formData.FirstName || !formData.LastName || !formData.PhoneNumber || !formData.RealTimeAlertsPrice) {
+      alert('Please fill all the required fields.');
+      return;
+    }
+
+    // Process the form submission (e.g., make an API request)
+    console.log('Form data submitted:', formData);
+
+    // Example API request (using fetch)
+    fetch('/api/v1/form/real-time-alerts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data);
+        // Handle success (e.g., show a success message or redirect)
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        // Handle error (e.g., show an error message)
+      });
+  };
   return (
     <div className="p-4 md:p-5 lg:p-12 flex flex-col gap-3">
       <Navbar />
@@ -25,28 +68,58 @@ const FormRealTime = () => {
 
           <form
             className='form flex flex-col gap-4 md:gap-6 lg:gap-8'
-            action="/api/v1/form/real-time-alerts"
-            method="POST"> 
+            onSubmit={handleSubmit}
+          // action="/api/v1/form/real-time-alerts"
+          // method="POST"
+          >
 
             <div className="names grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
               <div className="firstName flex flex-col gap-3">
                 <label className='text-base lg:text-lg font-semibold'> First Name: </label>
-                <input className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10' type="text" name='FirstName' placeholder='First Name' required />
+                <input
+                  className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
+                  type="text"
+                  name='FirstName'
+                  value={formData.FirstName}
+                  onChange={handleInputChange}
+                  placeholder='First Name'
+                  required />
               </div>
               <div className="lastName flex flex-col gap-3">
                 <label className='text-base lg:text-lg font-semibold'> Last Name: </label>
-                <input className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10' type="text" name='LastName' placeholder='Last Name' required />
+                <input
+                  className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
+                  type="text"
+                  name='LastName'
+                  value={formData.LastName}
+                  onChange={handleInputChange}
+                  placeholder='Last Name'
+                  required />
               </div>
             </div>
 
             <div className="contact grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
               <div className="phone-number flex flex-col gap-3">
                 <label className='text-base lg:text-lg font-semibold' > Phone Number (WhatsApp): </label>
-                <input className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10' type="tel" name='PhoneNumber' placeholder="Phone Number" pattern="[0-9]{10}" required />
+                <input
+                  className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
+                  type="tel"
+                  name='PhoneNumber'
+                  placeholder="Phone Number"
+                  value={formData.PhoneNumber}
+                  onChange={handleInputChange}
+                  pattern="[0-9]{10}"
+                  required />
               </div>
               <div className="email flex flex-col gap-3">
                 <label className='text-base lg:text-lg font-semibold' > Email: </label>
-                <input className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10' type="email" name='Email' placeholder='Email' />
+                <input
+                  className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
+                  type="email"
+                  name='Email'
+                  value={formData.Email}
+                  onChange={handleInputChange}
+                  placeholder='Email' />
               </div>
             </div>
 
@@ -54,7 +127,7 @@ const FormRealTime = () => {
             <div className="visa-type-details grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
               {/* VISA Type Selection */}
               <div className="visa-type flex flex-col gap-2">
-                <div className="heading flex flex-co- gap-1">
+                <div className="heading flex flex-col gap-1">
                   <h1 className='text-base lg:text-lg font-semibold'>VISA Type <span className='text-sm'>(Select One)</span>:</h1>
                   <hr className='bg-[#a3663c] rounded-full h-[0.125rem] w-3/4' />
                 </div>
@@ -98,11 +171,25 @@ const FormRealTime = () => {
                     <h4 className='text-sm font-semibold text-white bg-[#3a4740] p-3 rounded-r-full w-fit'> For F1 VISA Alerts </h4>
                     <div className="options flex flex-col gap-1 ">
                       <div className="option1 flex ">
-                        <input className='radio-button' type="radio" id="plan-1" name="RealTimeAlerts_F1Price" value="plan-1" required />
+                        <input
+                          className='radio-button'
+                          type="radio"
+                          id="plan-1"
+                          name="RealTimeAlertsPrice"
+                          value="₹899 /30 days"
+                          onChange={handleInputChange}
+                          required />
                         <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-1"> ₹899 /30 days </label>
                       </div>
                       <div className="option2 flex">
-                        <input className='radio-button' type="radio" id="plan-2" name="RealTimeAlerts_F1Price" value="plan-2" required />
+                        <input
+                          className='radio-button'
+                          type="radio"
+                          id="plan-2"
+                          name="RealTimeAlertsPrice"
+                          value="₹1099 /40 days"
+                          onChange={handleInputChange}
+                          required />
                         <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-2">₹1099 /40 days</label>
                       </div>
                     </div>
@@ -113,11 +200,25 @@ const FormRealTime = () => {
                     <h4 className='text-sm font-semibold text-white bg-[#3a4740] p-3 rounded-r-full w-fit'> For B1/B2 VISA Alerts </h4>
                     <div className="options flex flex-col gap-1 ">
                       <div className="option1 flex ">
-                        <input className='radio-button' type="radio" id="plan-3" name="RealTimeAlerts_B1Price" value="plan-3" required />
+                        <input
+                          className='radio-button'
+                          type="radio"
+                          id="plan-3"
+                          name="RealTimeAlertsPrice"
+                          value="₹1999 /30 days"
+                          onChange={handleInputChange}
+                          required />
                         <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-3"> ₹1999 /30 days </label>
                       </div>
                       <div className="option2 flex">
-                        <input className='radio-button' type="radio" id="plan-4" name="RealTimeAlerts_B1Price" value="plan-4" required />
+                        <input
+                          className='radio-button'
+                          type="radio"
+                          id="plan-4"
+                          name="RealTimeAlertsPrice"
+                          value="₹2399 /40 days"
+                          onChange={handleInputChange}
+                          required />
                         <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-4">₹2399 /40 days</label>
                       </div>
                     </div>
@@ -127,7 +228,10 @@ const FormRealTime = () => {
             </div>
 
             {/* Submit Button */}
-            <button type="submit" value="Proceed" className="submit-button flex bg-[#A3663C] text-lg lg:text-xl text-white w-fit font-semibold p-2 lg:p-3 px-5 lg:px-10 rounded-full gap-2 items-center hover:cursor-pointer">
+            <button 
+              type="submit" 
+              value="Proceed" 
+              className="submit-button flex bg-[#A3663C] text-lg lg:text-xl text-white w-fit font-semibold p-2 lg:p-3 px-5 lg:px-10 rounded-full gap-2 items-center hover:cursor-pointer">
               <p>Proceed</p>
               <img className='w-5 hover:cursor-pointer ' src={ArrowWhite} alt="Arrow" />
             </button>
