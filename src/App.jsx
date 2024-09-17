@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Footer, FormRealTime, FormVisaSlot, SuccessRealTimeAlerts, NotFound  } from "./components";
+import { Home, Footer, FormRealTime, FormVisaSlot, SuccessRealTimeAlerts, SuccessVisaSlotBooking, NotFound  } from "./components";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 
@@ -21,6 +21,10 @@ function App() {
     {
       path: "/real-time-alerts-form-submitted",
       element: <SuccessRealTimeAlerts/>
+    },
+    {
+      path: "/visa-slot-booking-form-submitted",
+      element: <SuccessVisaSlotBooking/>
     },
     {
       path: "*",

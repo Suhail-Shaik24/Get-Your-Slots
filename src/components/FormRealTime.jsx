@@ -54,17 +54,40 @@ const FormRealTime = () => {
       },
       body: JSON.stringify(formData),
     })
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((errorData) => {
+            const errorMessage = errorData.message || 'Submission Failed. Please Try Again.';
+            throw new Error(errorMessage);
+          });
+        }
+        return response.json();
+      })
       .then((response) => response.json())
       .then((data) => {
-        console.log('Success:', data);
-        // Redirect after successful submission
+        console.log("Success:", data);
         navigate('/real-time-alerts-form-submitted');
       })
       .catch((error) => {
         console.error('Error:', error);
-        // setSubmissionError(true);
       });
+    // .then((data) => {
+    //   console.log('Success:', data);
+    //   // Redirect after successful submission
+    //   if (data.success) { // Assuming the API returns a success flag
+    //     console.log("Success:", data);
+    //     navigate('/real-time-alerts-form-submitted');
+    //     // navigate('/real-time-alerts-form-submitted');
+    //   } else {
+    //     throw new Error(data.message || 'Submission failed.'); // Handle specific errors from the server
+    //   }
+    // })
+    // .catch((error) => {
+    //   console.error('Error:', error);
+    //   alert(`There was an error submitting your form: ${error.message}`);
+    // });
   };
+
 
   return (
     <div className="p-4 md:p-5 lg:p-12 flex flex-col gap-3">

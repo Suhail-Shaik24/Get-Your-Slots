@@ -27,7 +27,7 @@ const FormVisaSlot = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!formData.FirstName || formData.LastName || formData.PhoneNumber || formData.VisaSlotBookingPrice) {
+    if (!formData.FirstName || !formData.LastName || !formData.PhoneNumber || !formData.VisaSlotBookingPrice) {
       alert('Please Fill All the Required Fields.');
       return;
     }
@@ -49,6 +49,29 @@ const FormVisaSlot = () => {
       .catch((error) => {
         console.error('Error:', error);
       });
+      // .then((response) => {
+      //   if (!response.ok) {
+      //     return response.json().then((errorData) => {
+      //       const errorMessage = errorData.message || 'Submission Failed. Please Try Again.';
+      //       throw new Error(errorMessage);
+      //     });
+      //   }
+      //   return response.json();
+      // })
+      // .then((data) => {
+      //   console.log('Success:', data);
+      //   // Redirect after successful submission
+      //   if (data.success) { // Assuming the API returns a success flag
+      //     console.log("Success:", data);
+      //     navigate('/visa-slot-booking-form-submitted');
+      //   } else {
+      //     throw new Error(data.message || 'Submission failed.'); // Handle specific errors from the server
+      //   }
+      // })
+      // .catch((error) => {
+      //   console.error('Error:', error);
+      //   alert(`There was an error submitting your form: ${error.message}`);
+      // });
   };
 
   return (
@@ -65,6 +88,7 @@ const FormVisaSlot = () => {
 
           <form
             className='form flex flex-col gap-4 md:gap-6 lg:gap-8'
+            onSubmit={handleSubmit}
           >
 
             <div className="names grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
@@ -86,6 +110,7 @@ const FormVisaSlot = () => {
                   type="text"
                   name='LastName'
                   value={formData.LastName}
+                  onChange={handleInputChange}
                   placeholder='Last Name'
                   required />
               </div>
@@ -169,7 +194,8 @@ const FormVisaSlot = () => {
                     className='radio-button'
                     type="radio"
                     id="Dropbox"
-                    name="visa-appointment"
+                    name="VisaAppointmentType"
+                    onChange={handleInputChange}
                     value="Dropbox"
                     required />
                   <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="Dropbox">Dropbox</label>
@@ -192,7 +218,7 @@ const FormVisaSlot = () => {
                     id="plan-1"
                     name="VisaSlotBookingPrice"
                     onChange={handleInputChange}
-                    value="plan-1"
+                    value="₹9999 (Fresher VISA)"
                     required />
                   <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="plan-1"> ₹9999 (Fresher VISA)</label>
                 </div>
@@ -203,7 +229,7 @@ const FormVisaSlot = () => {
                     id="plan-2"
                     name="VisaSlotBookingPrice"
                     onChange={handleInputChange}
-                    value="plan-2"
+                    value="₹14999 (Refused VISA)"
                     required />
                   <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="plan-2">₹14999 (Refused VISA)</label>
                 </div>
