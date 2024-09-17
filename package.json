@@ -13,6 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.20.0",
     "mongodb": "^6.8.1",
     "mongoose": "^8.6.1",

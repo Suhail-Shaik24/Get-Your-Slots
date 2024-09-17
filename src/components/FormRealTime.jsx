@@ -11,10 +11,10 @@ const FormRealTime = () => {
 
   const navigate = useNavigate();
 
-  const handleButtonClick = () => {
-    navigate('/real-time-alerts-form-submitted');
-    console.log("Success");
-  };
+  // const handleButtonClick = () => {
+  //   navigate('/real-time-alerts-form-submitted');
+  //   console.log("Success");
+  // };
 
   const handleVisaTypeChange = (e) => {
     setVisaType(e.target.value);
@@ -37,38 +37,35 @@ const FormRealTime = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Add form validation if needed
+    // Validate the form data
     if (!formData.FirstName || !formData.LastName || !formData.PhoneNumber || !formData.RealTimeAlertsPrice) {
       alert('Please fill all the required fields.');
       return;
     }
 
-    // Process the form submission (e.g., make an API request)
+    // If the form is valid, process the form submission
     console.log('Form data submitted:', formData);
 
     // Example API request (using fetch)
-    fetch('/api/v1/form/real-time-alerts', {
+    fetch('https://us-central1-getyourslots-911db.cloudfunctions.net/addRealTimeAlert', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
     })
-      .then((response) => {
-        if (response.ok) {
-          // On successful submission, set the formSubmitted to true and navigate
-          setFormSubmitted(true);
-          navigate('/real-time-alerts-form-submitted', { state: { success: true } });
-        } else {
-          setSubmissionError(true);
-        }
-        return response.json();
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data);
+        // Redirect after successful submission
+        navigate('/real-time-alerts-form-submitted');
       })
       .catch((error) => {
         console.error('Error:', error);
         setSubmissionError(true);
       });
   };
+
 
   return (
     <div className="p-4 md:p-5 lg:p-12 flex flex-col gap-3">
@@ -247,13 +244,11 @@ const FormRealTime = () => {
             <button
               type="submit"
               value="Proceed"
-              onClick={handleButtonClick}
               className="submit-button flex bg-[#A3663C] text-lg lg:text-xl text-white w-fit font-semibold p-2 lg:p-3 px-5 lg:px-10 rounded-full gap-2 items-center hover:cursor-pointer">
               <p>Proceed</p>
               <img className='w-5 hover:cursor-pointer ' src={ArrowWhite} alt="Arrow" />
             </button>
           </form>
-          {submissionError && <p className="text-red-500"> An error occurred. Please try again.</p> }
           {/* Contact Us */}
           <hr className='bg-[#a3663c] rounded-full h-[0.125rem]' />
           <ContactUs />

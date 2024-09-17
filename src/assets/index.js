@@ -20,6 +20,7 @@ import Calender from "./calender.svg";
 import Logo2 from "./logo-1.svg";
 import Hamburger from "./hamburger.svg";
 import SmallRectangle from "./Small-Rectangle.svg";
+import ThankYouIcon from "./Thank-You-Icon.svg";
 
 export{
 
@@ -44,6 +45,7 @@ export{
     Calender,
     Hamburger,
     SmallRectangle,
-    filteredHeroImage
+    filteredHeroImage,
+    ThankYouIcon
     
 }

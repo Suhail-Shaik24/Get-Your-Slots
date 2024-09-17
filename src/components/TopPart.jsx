@@ -3,7 +3,9 @@ import { HeroImage, ArrowBlack, ArrowWhite } from '../assets'
 import { Navbar } from '../components'
 
 
-const TopPart = () => {
+const TopPart = ({scrollToFeatures, scrollToSubscriptions}) => {
+    
+
     return (
         <div className="top-part p-4 bg-[url('assets/heroBg.png')] bg-right-top bg-no-repeat bg-cover md:p-5 lg:p-12 lg:bg-[url('assets/heroBg.png')] md:bg-[url('assets/heroBg.png')] ">
             <Navbar />
@@ -21,11 +23,17 @@ const TopPart = () => {
 
                     </div>
                     <div className="buttons flex gap-1 md:gap-2 lg:gap-3">
-                        <button className='bg-[#A3663C] w-3/5 text-white text-[12px] p-2 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-sm sml:p-2 sml:px-3 md:text-sm md:p-2 md:px-3 md:rounded-md lg:text-base lg:p-3 lg:px-5 lg:rounded-md' type="button">
+                        <button 
+                            className='bg-[#A3663C] w-3/5 text-white text-[12px] p-2 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-sm sml:p-2 sml:px-3 md:text-sm md:p-2 md:px-3 md:rounded-md lg:text-base lg:p-3 lg:px-5 lg:rounded-md' 
+                            type="button"
+                            onClick={scrollToSubscriptions}>
                             <p>Get Started</p>
                             <img className='w-3 md:w-4 lg:w-5' src={ArrowWhite} alt="Arrow" />
                         </button>
-                        <button className='bg-white w-3/5 border border-[#A3663C] text-black text-[12px] p-2 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-sm sml:p-2 sml:px-3 md:text-sm md:p-2 md:px-3 md:rounded-md lg:text-base lg:p-3 lg:px-5 lg:rounded-md' type="button">
+                        <button 
+                            className='bg-white w-3/5 border border-[#A3663C] text-black text-[12px] p-2 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-sm sml:p-2 sml:px-3 md:text-sm md:p-2 md:px-3 md:rounded-md lg:text-base lg:p-3 lg:px-5 lg:rounded-md' 
+                            type="button"
+                            onClick={scrollToFeatures}>
                             <p>Learn More</p>
                             <img className='w-3 md:w-4 lg:w-5' src={ArrowBlack} alt="Arrow" />
                         </button>
