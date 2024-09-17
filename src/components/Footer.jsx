@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { Logo2, Instagram, X } from '../assets'
 
 const Footer = () => {
@@ -27,8 +27,8 @@ const Footer = () => {
             <hr />
           </div>
           <div className="links flex flex-col gap-2">
-            <link to="/real-time-alerts-form" target='_blank'><h5 className='text-xs lg:text-base hover:underline hover:font-bold'>Get Real Time Alerts </h5></link>
-            <link tp="/visa-slot-booking-form" target='_blank'><h5 className='text-xs lg:text-base hover:underline hover:font-bold'>Book a Visa Slot </h5></link>
+            <a href="/real-time-alerts-form" target='_blank'><h5 className='text-xs lg:text-base hover:underline hover:font-bold'>Get Real Time Alerts </h5></a>
+            <a href="./visa-slot-booking-form" target='_blank'><h5 className='text-xs lg:text-base hover:underline hover:font-bold'>Book a Visa Slot </h5></a>
           </div>
         </div>
 
