@@ -7,7 +7,7 @@ import '../css/Form.css';
 const FormRealTime = () => {
 
   const [visaType, setVisaType] = useState('');
-  const [submissionError, setSubmissionError] = useState(false);
+  // const [submissionError, setSubmissionError] = useState(false);
 
   const navigate = useNavigate();
 
@@ -39,12 +39,12 @@ const FormRealTime = () => {
 
     // Validate the form data
     if (!formData.FirstName || !formData.LastName || !formData.PhoneNumber || !formData.RealTimeAlertsPrice) {
-      alert('Please fill all the required fields.');
+      alert('Please Fill All the Required Fields.');
       return;
     }
 
     // If the form is valid, process the form submission
-    console.log('Form data submitted:', formData);
+    // console.log('Form data submitted:', formData);
 
     // Example API request (using fetch)
     fetch('https://us-central1-getyourslots-911db.cloudfunctions.net/addRealTimeAlert', {
@@ -62,10 +62,9 @@ const FormRealTime = () => {
       })
       .catch((error) => {
         console.error('Error:', error);
-        setSubmissionError(true);
+        // setSubmissionError(true);
       });
   };
-
 
   return (
     <div className="p-4 md:p-5 lg:p-12 flex flex-col gap-3">
@@ -82,8 +81,6 @@ const FormRealTime = () => {
           <form
             className='form flex flex-col gap-4 md:gap-6 lg:gap-8'
             onSubmit={handleSubmit}
-          // action="/api/v1/form/real-time-alerts"
-          // method="POST"
           >
 
             <div className="names grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">

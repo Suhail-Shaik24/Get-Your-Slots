@@ -9,6 +9,7 @@ import RealTimeAlerts from './RealTimeAlerts';
 import FormRealTime from "./FormRealTime";
 import SuccessRealTimeAlerts from "./SuccessRealTimeAlerts";
 import VisaSlots from './VisaSlots';
+import SuccessVisaSlotBooking from "./SuccessVisaSlotBooking.jsx";
 import FormVisaSlot from "./FormVisaSlot";
 import Footer from "./Footer";
 import NotFound from "./NotFound";
@@ -31,6 +32,7 @@ export{
     SuccessRealTimeAlerts,
     VisaSlots,
     FormVisaSlot,
+    SuccessVisaSlotBooking,
     TestimonialsSection,
     Testimonial,
     TestimonialsArray,

@@ -1,10 +1,55 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Navbar, ContactUs } from '../components'
 import { ArrowWhite } from '../assets';
 import '../css/Form.css';
 
 
 const FormVisaSlot = () => {
+
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    FirstName: '',
+    LastName: '',
+    PhoneNumber: '',
+    Email: '',
+    VisaType: '',
+    VisaAppointmentType: '',
+    VisaSlotBookingPrice: '',
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!formData.FirstName || formData.LastName || formData.PhoneNumber || formData.VisaSlotBookingPrice) {
+      alert('Please Fill All the Required Fields.');
+      return;
+    }
+
+    console.log('Form Data Submitted: ', formData);
+
+    fetch('https://us-central1-getyourslots-911db.cloudfunctions.net/addVisaSlotBooking', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        navigate('/visa-slot-booking-form-submitted');
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  };
 
   return (
     <div className="p-4 md:p-5 lg:p-12 flex flex-col gap-3">
@@ -20,8 +65,7 @@ const FormVisaSlot = () => {
 
           <form
             className='form flex flex-col gap-4 md:gap-6 lg:gap-8'
-            action="/"
-            method="POST">
+          >
 
             <div className="names grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
               <div className="firstName flex flex-col gap-3">
@@ -29,7 +73,9 @@ const FormVisaSlot = () => {
                 <input
                   className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
                   type="text"
-                  name='First Name'
+                  name='FirstName'
+                  value={formData.FirstName}
+                  onChange={handleInputChange}
                   placeholder='First Name'
                   required />
               </div>
@@ -38,7 +84,8 @@ const FormVisaSlot = () => {
                 <input
                   className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
                   type="text"
-                  name='Last Name'
+                  name='LastName'
+                  value={formData.LastName}
                   placeholder='Last Name'
                   required />
               </div>
@@ -50,7 +97,9 @@ const FormVisaSlot = () => {
                 <input
                   className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
                   type="tel"
-                  name='Phone Number'
+                  name='PhoneNumber'
+                  value={formData.PhoneNumber}
+                  onChange={handleInputChange}
                   placeholder="Phone Number"
                   pattern="[0-9]{10}"
                   required />
@@ -61,6 +110,8 @@ const FormVisaSlot = () => {
                   className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
                   type="email"
                   name='Email'
+                  value={formData.Email}
+                  onChange={handleInputChange}
                   placeholder='Email' />
               </div>
             </div>
@@ -78,7 +129,8 @@ const FormVisaSlot = () => {
                     className='radio-button'
                     type="radio"
                     id="F1-Visa"
-                    name="Visa-Type"
+                    name="VisaType"
+                    onChange={handleInputChange}
                     value="F1-Visa"
                     required />
                   <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="F1-Visa">F1 Visa</label>
@@ -88,7 +140,8 @@ const FormVisaSlot = () => {
                     className='radio-button'
                     type="radio"
                     id="B1/B2-Visa"
-                    name="Visa-Type"
+                    name="VisaType"
+                    onChange={handleInputChange}
                     value="B1/B2-Visa"
                     required />
                   <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="B1/B2-Visa">B1/B2 Visa</label>
@@ -101,22 +154,23 @@ const FormVisaSlot = () => {
                   <hr className='bg-[#a3663c] rounded-full h-[0.125rem] w-11/12' />
                 </div>
                 <div className="option1 flex ">
-                  <input 
-                    className='radio-button' 
-                    type="radio" 
-                    id="Regular" 
-                    name="visa-appointment" 
-                    value="Regular" 
+                  <input
+                    className='radio-button'
+                    type="radio"
+                    id="Regular"
+                    name="VisaAppointmentType"
+                    onChange={handleInputChange}
+                    value="Regular"
                     required />
                   <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="Regular"> Regular </label>
                 </div>
                 <div className="option2 flex">
-                  <input 
-                    className='radio-button' 
-                    type="radio" 
-                    id="Dropbox" 
-                    name="visa-appointment" 
-                    value="Dropbox" 
+                  <input
+                    className='radio-button'
+                    type="radio"
+                    id="Dropbox"
+                    name="visa-appointment"
+                    value="Dropbox"
                     required />
                   <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="Dropbox">Dropbox</label>
                 </div>
@@ -132,32 +186,34 @@ const FormVisaSlot = () => {
                   <hr className='bg-[#a3663c] rounded-full h-[0.125rem] w-11/12' />
                 </div>
                 <div className="option1 flex ">
-                  <input 
-                    className='radio-button' 
-                    type="radio" 
-                    id="plan-1" 
-                    name="visa-slot-booking-price" 
-                    value="plan-1" 
+                  <input
+                    className='radio-button'
+                    type="radio"
+                    id="plan-1"
+                    name="VisaSlotBookingPrice"
+                    onChange={handleInputChange}
+                    value="plan-1"
                     required />
-                  <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="plan-1"> ₹9999 </label>
+                  <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="plan-1"> ₹9999 (Fresher VISA)</label>
                 </div>
                 <div className="option2 flex">
-                  <input 
-                    className='radio-button' 
-                    type="radio" 
-                    id="plan-2" 
-                    name="visa-slot-booking-price" 
-                    value="plan-2" 
+                  <input
+                    className='radio-button'
+                    type="radio"
+                    id="plan-2"
+                    name="VisaSlotBookingPrice"
+                    onChange={handleInputChange}
+                    value="plan-2"
                     required />
-                  <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="plan-2">₹14999</label>
+                  <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="plan-2">₹14999 (Refused VISA)</label>
                 </div>
               </div>
             </div>
 
             {/* Submit Button */}
-            <button 
-              type="submit" 
-              value="Proceed" 
+            <button
+              type="submit"
+              value="Proceed"
               className="submit-button flex bg-[#A3663C] text-lg lg:text-xl text-white w-fit font-semibold p-2 lg:p-3 px-5 lg:px-10 rounded-full gap-2 items-center hover:cursor-pointer">
               <p>Proceed</p>
               <img className='w-5 hover:cursor-pointer ' src={ArrowWhite} alt="Arrow" />
