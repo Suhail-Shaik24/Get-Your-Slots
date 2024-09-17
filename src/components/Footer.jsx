@@ -26,8 +26,8 @@ const Footer = () => {
             <hr />
           </div>
           <div className="links flex flex-col gap-2">
-            <a href="/real-time-alerts-form" target='_blank'><h5 className='text-xs lg:text-base hover:underline hover:font-bold'>Get Real Time Alerts </h5></a>
-            <a href="/visa-slot-booking-form" target='_blank'><h5 className='text-xs lg:text-base hover:underline hover:font-bold'>Book a Visa Slot </h5></a>
+            <a href="./real-time-alerts-form" target='_blank'><h5 className='text-xs lg:text-base hover:underline hover:font-bold'>Get Real Time Alerts </h5></a>
+            <a href="./visa-slot-booking-form" target='_blank'><h5 className='text-xs lg:text-base hover:underline hover:font-bold'>Book a Visa Slot </h5></a>
           </div>
         </div>
 
