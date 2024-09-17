@@ -1,11 +1,11 @@
 import React from 'react';
 import { Home, Footer, FormRealTime, FormVisaSlot, SuccessRealTimeAlerts, SuccessVisaSlotBooking, NotFound  } from "./components";
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { HashRouter, createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 
 function App() {
 
-  const router = createBrowserRouter([
+  const router = HashRouter([
     {
       path: "/",
       element: <Home />
