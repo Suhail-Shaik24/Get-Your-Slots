@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { RealTimeAlerts, VisaSlots } from "../components";
 
-const Subscriptions = forwardRef((props, ref) => {
+const Subscriptions = forwardRef(({ realTimeAlertsRef, VisaSlotBookingRef }, ref) => {
     return (
         <div
             className='p-4 md:p-5 lg:p-12 lg:py-6 flex flex-col gap-3'
@@ -12,8 +12,12 @@ const Subscriptions = forwardRef((props, ref) => {
                 <hr className='bg-[#3A4740] h-1 rounded-full w-[70%]' />
             </div>
             <div className="plans flex flex-col gap-3">
-                <RealTimeAlerts />
-                <VisaSlots />
+                <div className="realTimeAlerts" ref={realTimeAlertsRef}>
+                    <RealTimeAlerts />
+                </div>
+                <div className="VisaSlotBooking" ref={VisaSlotBookingRef}>
+                    <VisaSlots />
+                </div>
             </div>
         </div>
     )

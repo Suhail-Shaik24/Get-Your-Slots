@@ -14,18 +14,18 @@ const ContactUs = () => {
             <div className="socials lg:hidden md:hidden sml:hidden flex lg:grid-cols-3 w-2/4 gap-4 items-baseline justify-between">
 
                 <a
-                    href='wa.me/9398864908'
+                    href='https://wa.me/8247347222'
                     className="whatsApp flex flex-col gap-1 items-center"
                     target='_blank'
                 >
                    <img className='w-7' src={WhatsApp2} alt="WhatsApp" />
                 </a>
 
-                <a  href='https://t.me/+919398864908' target='_blank' className="Telegram flex flex-col gap-1 items-center">
+                <a  href='https://t.me/+918247347222' target='_blank' className="Telegram flex flex-col gap-1 items-center">
                     <img className='w-7' src={Telegram2} alt="Telegram" />
                 </a>
 
-                <a href='#' className="Gmail flex flex-col gap-1 items-center">
+                <a href='mailto:support@getyourslots.com' className="Gmail flex flex-col gap-1 items-center">
                     <img className='w-7' src={Gmail} alt="Gmail" />
                 </a>
 
@@ -33,22 +33,22 @@ const ContactUs = () => {
 
             <div className="socials lg:grid lg:grid-cols-3 sml:grid sml:grid-cols-3 md:grid md:grid-cols-3 w-2/4 gap-4 items-baseline justify-between hidden">
 
-                <a href='https://wa.me/9398864908' target='_blank' className="whatsApp flex flex-col gap-1 items-center">
+                <a href='https://wa.me/8247347222' target='_blank' className="whatsApp flex flex-col gap-1 items-center">
                     <img className='w-8' src={WhatsApp2} alt="WhatsApp" />
                     <p className='text-xs lg:text-base font-semibold'>WhatsApp </p>
-                    <p className='text-xs lg:text-sm'> +91 93988 64908 </p>
+                    <p className='text-xs lg:text-sm'> +91 82473 47222 </p>
                 </a>
 
-                <a href='https://t.me/+919398864908' target='_blank' className="Telegram flex flex-col gap-1 items-center">
+                <a href='https://t.me/+918247347222' target='_blank' className="Telegram flex flex-col gap-1 items-center">
                     <img className='w-8' src={Telegram2} alt="Telegram" />
                     <p className='text-xs lg:text-base font-semibold'>Telegram </p>
-                    <p className='text-xs lg:text-sm'> +91 93988 64908 </p>
+                    <p className='text-xs lg:text-sm'> +91 82473 47222 </p>
                 </a>
 
-                <a href='#' className="Gmail flex flex-col gap-1 items-center">
+                <a href='mailto:support@getyourslots.com' className="Gmail flex flex-col gap-1 items-center">
                     <img className='w-9' src={Gmail} alt="Gmail" />
                     <p className='text-xs lg:text-base font-semibold'> Gmail </p>
-                    {/* <p className='text-sm text-center'> support<br/>@getyourslots.com</p> */}
+                    <p className='text-sm text-center'> support@getyourslots.com</p>
                 </a>
 
             </div>

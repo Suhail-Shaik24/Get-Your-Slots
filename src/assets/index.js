@@ -22,6 +22,8 @@ import Logo2 from "./logo-1.svg";
 import Hamburger from "./hamburger.svg";
 import SmallRectangle from "./Small-Rectangle.svg";
 import ThankYouIcon from "./Thank-You-Icon.svg";
+import Instagram from "./Instagram.png";
+import X from './X.png'
 
 export{
 
@@ -48,6 +50,8 @@ export{
     Hamburger,
     SmallRectangle,
     filteredHeroImage,
-    ThankYouIcon
+    ThankYouIcon,
+    Instagram,
+    X
     
 }
