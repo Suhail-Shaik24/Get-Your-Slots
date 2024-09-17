@@ -14,6 +14,7 @@ import Telegram from "./Telegram.svg";
 import Telegram2 from "./Telegram-2.svg";
 import WhatsApp from "./WhatsApp.svg";
 import WhatsApp2 from "./WhatsApp-2.svg";
+import WhatsApp3 from "./WhatsApp-3.svg";
 import Gmail from "./Gmail-2.svg";
 import TechnicalSupport from "./Technical-Support.svg";
 import Calender from "./calender.svg";
@@ -40,6 +41,7 @@ export{
     Telegram2,
     WhatsApp,
     WhatsApp2,
+    WhatsApp3,
     Gmail,
     TechnicalSupport,
     Calender,
