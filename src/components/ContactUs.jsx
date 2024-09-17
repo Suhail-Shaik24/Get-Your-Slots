@@ -21,7 +21,7 @@ const ContactUs = () => {
                    <img className='w-7' src={WhatsApp2} alt="WhatsApp" />
                 </a>
 
-                <a  href='https://t.me/+918247347222' target='_blank' className="Telegram flex flex-col gap-1 items-center">
+                <a  href='http://t.me/getyourslots_support' target='_blank' className="Telegram flex flex-col gap-1 items-center">
                     <img className='w-7' src={Telegram2} alt="Telegram" />
                 </a>
 
@@ -39,10 +39,10 @@ const ContactUs = () => {
                     <p className='text-xs lg:text-sm'> +91 82473 47222 </p>
                 </a>
 
-                <a href='https://t.me/+918247347222' target='_blank' className="Telegram flex flex-col gap-1 items-center">
+                <a href='http://t.me/getyourslots_support' target='_blank' className="Telegram flex flex-col gap-1 items-center">
                     <img className='w-8' src={Telegram2} alt="Telegram" />
                     <p className='text-xs lg:text-base font-semibold'>Telegram </p>
-                    <p className='text-xs lg:text-sm'> +91 82473 47222 </p>
+                    <p className='text-xs lg:text-sm'> getyourslots_support </p>
                 </a>
 
                 <a href='mailto:support@getyourslots.com' className="Gmail flex flex-col gap-1 items-center">
