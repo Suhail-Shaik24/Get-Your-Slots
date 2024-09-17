@@ -23,7 +23,9 @@ import Hamburger from "./hamburger.svg";
 import SmallRectangle from "./Small-Rectangle.svg";
 import ThankYouIcon from "./Thank-You-Icon.svg";
 import Instagram from "./Instagram.png";
-import X from './X.png'
+import X from './X.png';
+import LinkedIn from './LinkedIn.svg'
+import YouTube from './YouTube.svg'
 
 export{
 
@@ -52,6 +54,8 @@ export{
     filteredHeroImage,
     ThankYouIcon,
     Instagram,
-    X
+    X,
+    LinkedIn,
+    YouTube
     
 }
