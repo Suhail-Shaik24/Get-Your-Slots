@@ -44,7 +44,7 @@ const FormRealTime = () => {
     }
 
     // If the form is valid, process the form submission
-    // console.log('Form data submitted:', formData);
+    console.log('Form data submitted:', formData);
 
     // Example API request (using fetch)
     fetch('https://us-central1-getyourslots-911db.cloudfunctions.net/addRealTimeAlert', {
@@ -57,7 +57,7 @@ const FormRealTime = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
-        navigate('/visa-slot-booking-form-submitted');
+        navigate('/real-time-alerts-form-submitted');
       })
       .catch((error) => {
         console.error('Error:', error);
