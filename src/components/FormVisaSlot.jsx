@@ -49,29 +49,29 @@ const FormVisaSlot = () => {
       .catch((error) => {
         console.error('Error:', error);
       });
-      // .then((response) => {
-      //   if (!response.ok) {
-      //     return response.json().then((errorData) => {
-      //       const errorMessage = errorData.message || 'Submission Failed. Please Try Again.';
-      //       throw new Error(errorMessage);
-      //     });
-      //   }
-      //   return response.json();
-      // })
-      // .then((data) => {
-      //   console.log('Success:', data);
-      //   // Redirect after successful submission
-      //   if (data.success) { // Assuming the API returns a success flag
-      //     console.log("Success:", data);
-      //     navigate('/visa-slot-booking-form-submitted');
-      //   } else {
-      //     throw new Error(data.message || 'Submission failed.'); // Handle specific errors from the server
-      //   }
-      // })
-      // .catch((error) => {
-      //   console.error('Error:', error);
-      //   alert(`There was an error submitting your form: ${error.message}`);
-      // });
+    // .then((response) => {
+    //   if (!response.ok) {
+    //     return response.json().then((errorData) => {
+    //       const errorMessage = errorData.message || 'Submission Failed. Please Try Again.';
+    //       throw new Error(errorMessage);
+    //     });
+    //   }
+    //   return response.json();
+    // })
+    // .then((data) => {
+    //   console.log('Success:', data);
+    //   // Redirect after successful submission
+    //   if (data.success) { // Assuming the API returns a success flag
+    //     console.log("Success:", data);
+    //     navigate('/visa-slot-booking-form-submitted');
+    //   } else {
+    //     throw new Error(data.message || 'Submission failed.'); // Handle specific errors from the server
+    //   }
+    // })
+    // .catch((error) => {
+    //   console.error('Error:', error);
+    //   alert(`There was an error submitting your form: ${error.message}`);
+    // });
   };
 
   return (

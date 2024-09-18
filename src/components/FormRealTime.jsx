@@ -54,22 +54,13 @@ const FormRealTime = () => {
       },
       body: JSON.stringify(formData),
     })
-      .then((response) => {
-        if (!response.ok) {
-          return response.json().then((errorData) => {
-            const errorMessage = errorData.message || 'Submission Failed. Please Try Again.';
-            throw new Error(errorMessage);
-          });
-        }
-        return response.json(); // Parse JSON only once
-      })
+      .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
-        navigate('/real-time-alerts-form-submitted'); // Redirect on success
+        navigate('/visa-slot-booking-form-submitted');
       })
       .catch((error) => {
         console.error('Error:', error);
-        alert(`There was an error submitting your form: ${error.message}`);
       });
     // .then((data) => {
     //   console.log('Success:', data);
