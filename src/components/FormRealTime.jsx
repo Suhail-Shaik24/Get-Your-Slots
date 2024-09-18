@@ -61,15 +61,15 @@ const FormRealTime = () => {
             throw new Error(errorMessage);
           });
         }
-        return response.json();
+        return response.json(); // Parse JSON only once
       })
-      .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
-        navigate('/real-time-alerts-form-submitted');
+        navigate('/real-time-alerts-form-submitted'); // Redirect on success
       })
       .catch((error) => {
         console.error('Error:', error);
+        alert(`There was an error submitting your form: ${error.message}`);
       });
     // .then((data) => {
     //   console.log('Success:', data);
