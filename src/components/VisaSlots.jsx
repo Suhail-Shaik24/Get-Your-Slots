@@ -5,7 +5,6 @@ import "../css/RealTime.css"
 
 
 const VisaSlots = () => {
-    // const [showVisaSlotForm, setShowVisaSlotForm] = useState(false);
     const navigate = useNavigate();
 
     const handleButtonClick = () => {

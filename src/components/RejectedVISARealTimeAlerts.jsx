@@ -17,7 +17,7 @@ const RejectedVISARealTimeAlerts = () => {
 
             <div className="fresherVisa-plans-container grid grid-cols-2 gap-2 lg:gap-4  sml:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 justify-center items-center ">
                 <div className="plan1 bg-white p-3 h-fit lg:p-6 rounded-md flex flex-col gap-2 lg:gap-8 justify-center items-center">
-                    <h1 className="font-['Open_Sans'] text-sm lg:text-2xl font-bold text-center">F1/F2 <br /> Refused Visa</h1>
+                    <h1 className="font-['Open_Sans'] text-sm lg:text-2xl font-bold text-center">F1 <br /> Refused Visa</h1>
                     <h1 className="Price font-['Times_New_Roman'] text-[#a3663c] text-2xl lg:text-4xl font-bold text-center">₹1299 <span className='text-black text-xs lg:text-lg'>/30days</span></h1>
                     <div className='w-full'>
                         <Provisions1 />
@@ -31,7 +31,7 @@ const RejectedVISARealTimeAlerts = () => {
                 </div>
 
                 <div className="plan2 bg-white p-3 h-fit lg:p-6 rounded-md flex flex-col gap-2 lg:gap-8 justify-center items-center">
-                    <h1 className="font-['Open_Sans'] text-sm lg:text-2xl font-bold text-center">F1/F2 <br /> Refused Visa</h1>
+                    <h1 className="font-['Open_Sans'] text-sm lg:text-2xl font-bold text-center">F1 <br /> Refused Visa</h1>
                     <h1 className="Price font-['Times_New_Roman'] text-[#a3663c] text-2xl lg:text-4xl font-bold text-center">₹1799 <span className='text-black text-xs lg:text-lg'>/40days</span></h1>
                     <div className='w-full'>
                         <Provisions1 />

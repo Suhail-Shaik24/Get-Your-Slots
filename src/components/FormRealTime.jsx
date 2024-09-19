@@ -58,7 +58,7 @@ const FormRealTime = () => {
         console.log("Success:", data);
 
         // Navigate to the submission success page
-        navigate('/real-time-alerts-FreshersVisaForm-submitted');
+        navigate('/real-time-alerts-form-submitted');
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -75,7 +75,7 @@ const FormRealTime = () => {
       <div className='flex flex-col items-center justify-center h-full font-[Open_Sans]'>
 
         <div className="form-container w-full bg-[#A3663C] h-72 p-3 lg:p-5 rounded-md flex flex-col gap-4">
-          <h1 className='text-xl lg:text-2xl text-white font-bold font-["Open_Sans"]'> Real Time Alerts </h1>
+          <h1 className='text-xl lg:text-2xl text-white font-bold font-["Open_Sans"]'> Real Time Alerts - Fresher Visa </h1>
         </div>
 
         <div className="form-super-container -mt-60 lg:-mt-56 w-[96%] p-6 lg:p-12 lg:px-20 bg-white rounded-lg lg:rounded-xl border-2 border-[#a3663c] flex flex-col gap-6 lg:gap-8">

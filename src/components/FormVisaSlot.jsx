@@ -5,7 +5,6 @@ import { Navbar, ContactUs } from '../components'
 import { ArrowWhite } from '../assets';
 import '../css/Form.css';
 
-
 const FormVisaSlot = () => {
 
   const navigate = useNavigate();
@@ -50,7 +49,7 @@ const FormVisaSlot = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
-        
+
         // Navigate to the submission success page
         navigate('/visa-slot-booking-form-submitted');
       })
@@ -66,7 +65,7 @@ const FormVisaSlot = () => {
       <div className='flex flex-col items-center justify-center h-full font-[Open_Sans]'>
 
         <div className="form-container w-full bg-[#A3663C] h-72 p-3 lg:p-5 rounded-md flex flex-col gap-4">
-          <h1 className='text-xl lg:text-2xl text-white font-bold font-["Open_Sans"]'>VISA Slot Booking</h1>
+          <h1 className='text-xl lg:text-2xl text-white font-bold font-["Open_Sans"]'>Visa Slot Booking</h1>
         </div>
 
         <div className="form-super-container -mt-60 lg:-mt-56 w-[96%] p-6 lg:p-12 lg:px-20 bg-white rounded-lg lg:rounded-xl border-2 border-[#a3663c] flex flex-col gap-6 lg:gap-8">
@@ -135,9 +134,10 @@ const FormVisaSlot = () => {
                 {/* VISA Type Selection */}
                 <div className="visa-type flex flex-col gap-2">
                   <div className="heading flex flex-col gap-1">
-                    <h1 className='text-base lg:text-lg font-semibold'>VISA Type <span className='text-sm'>(Select One)</span>:</h1>
+                    <h1 className='text-base lg:text-lg font-semibold'>Visa Type <span className='text-sm'>(Select One)</span>:</h1>
                     <hr className='bg-[#a3663c] rounded-full h-[0.125rem] w-3/4' />
                   </div>
+
                   <div className="option1 flex ">
                     <input
                       className='radio-button'
@@ -147,9 +147,22 @@ const FormVisaSlot = () => {
                       onChange={handleInputChange}
                       value="F1-Visa"
                       required />
-                    <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="F1-Visa">F1 Visa</label>
+                    <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="F1-Visa">F1 Visa</label>
                   </div>
+
                   <div className="option2 flex">
+                    <input
+                      className='radio-button'
+                      type="radio"
+                      id="F2-Visa"
+                      name="VisaType"
+                      onChange={handleInputChange}
+                      value="F2-Visa"
+                      required />
+                    <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="F2-Visa">F2 Visa</label>
+                  </div>
+
+                  <div className="option3 flex">
                     <input
                       className='radio-button'
                       type="radio"
@@ -158,15 +171,30 @@ const FormVisaSlot = () => {
                       onChange={handleInputChange}
                       value="B1/B2-Visa"
                       required />
-                    <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="B1/B2-Visa">B1/B2 Visa</label>
+                    <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="B1/B2-Visa">B1/B2 Visa</label>
+                  </div>
+
+                  <div className="option4 flex">
+                    <input
+                      className='radio-button'
+                      type="radio"
+                      id="H1B-Visa"
+                      name="VisaType"
+                      onChange={handleInputChange}
+                      value="H1B-Visa"
+                      required />
+                    <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="H1B-Visa">H1B Visa</label>
                   </div>
                 </div>
+
                 {/* VISA Appointment Selection */}
                 <div className="visa-appointment flex flex-col gap-2">
+
                   <div className="heading flex flex-col gap-1">
                     <h1 className='text-base lg:text-lg font-semibold'>Appointment Type <span className='text-sm'>(Select One)</span>:</h1>
                     <hr className='bg-[#a3663c] rounded-full h-[0.125rem] w-11/12' />
                   </div>
+
                   <div className="option1 flex ">
                     <input
                       className='radio-button'
@@ -178,6 +206,7 @@ const FormVisaSlot = () => {
                       required />
                     <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="Regular"> Regular </label>
                   </div>
+
                   <div className="option2 flex">
                     <input
                       className='radio-button'
@@ -190,7 +219,6 @@ const FormVisaSlot = () => {
                     <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="Dropbox">Dropbox</label>
                   </div>
                 </div>
-
               </div>
 
               {/* Subscription Plans Selection */}
