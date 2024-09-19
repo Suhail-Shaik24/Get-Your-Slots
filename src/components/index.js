@@ -21,6 +21,8 @@ import Testimonial from "./Testimonial.jsx";
 import TestimonialsArray from "./TestimonialsArray.jsx";
 import ContactUs from "./ContactUs.jsx";
 import ScrollToTop from "./ScrollToATop.jsx";
+//QR imports
+import QRFreshersRealTime from "./QRCodes/QRFreshersRealTime.jsx";
 
 export {
     Navbar,
@@ -46,4 +48,5 @@ export {
     ContactUs,
     NotFound,
     ScrollToTop,
+    QRFreshersRealTime,
 };

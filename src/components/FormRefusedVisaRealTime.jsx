@@ -39,7 +39,7 @@ const FormRefusedVisaRealTime = () => {
     setLoading(true);
 
     // API request (using fetch)
-    fetch('https://us-central1-getyourslots-911db.cloudfunctions.net/addRealTimeAlert', {
+    fetch('https://us-central1-getyourslots-911db.cloudfunctions.net/addRefusedRealTimeAlert', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

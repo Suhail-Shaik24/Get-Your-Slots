@@ -1,8 +1,8 @@
 // import { useLocation, useNavigate } from 'react-router-dom';
 // import { useEffect } from 'react';
 import React from "react";
-import { Navbar, ContactUs } from "../components";
-import { ThankYouIcon } from "../assets";
+import { Navbar, ContactUs, QRFreshersRealTime } from "../components";
+import { ThankYouIcon, WhatsApp3 } from "../assets";
 
 const SuccessRealTimeAlerts = () => {
 
@@ -21,6 +21,10 @@ const SuccessRealTimeAlerts = () => {
             <h1 className="text-xl lg:text-5xl text-center">Thank You</h1>
             <h3 className="text-base lg:text-xl text-center"> Your Form has been Submitted</h3>
           </div>
+          <div className="post-submission-message  rounded flex flex-col gap-4 p-6 items-center justify-start">
+            <h3 className='text-center text-white font-bold text-xl'> Our Team will Contact You Shortly </h3>
+            <QRFreshersRealTime />
+          </div>
 
           {/* Contact Us */}
           <hr className='bg-[#a3663c] rounded-full h-[0.125rem]' />
@@ -30,6 +34,5 @@ const SuccessRealTimeAlerts = () => {
     </div>
   )
 }
-
 
 export default SuccessRealTimeAlerts;

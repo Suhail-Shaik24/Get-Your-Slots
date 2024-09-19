@@ -18,7 +18,7 @@ const SuccessVisaSlotBooking = () => {
             <h1 className="text-xl lg:text-5xl text-center">Thank You</h1>
             <h3 className="text-base lg:text-xl text-center"> Your Form has been Submitted</h3>
           </div>
-          <div className="post-submission bg-[#3A4740] rounded flex flex-col gap-4 p-6 items-center justify-start">
+          <div className="post-submission-message bg-[#3A4740] rounded flex flex-col gap-4 p-6 items-center justify-start">
             <h3 className='text-center text-white font-bold text-xl'> Our Team will Contact You Shortly </h3>
             <a href='https://wa.me/9398864908' target='_blank' className="whatsApp flex flex-col gap-1 items-center">
               <img className='w-8' src={WhatsApp3} alt="WhatsApp" />
