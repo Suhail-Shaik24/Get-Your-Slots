@@ -1,20 +1,16 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import ReactLoading from 'react-loading';
 import { Navbar, ContactUs } from '../components'
 import { ArrowWhite } from '../assets';
 import '../css/Form.css';
 
 const FormRealTime = () => {
 
-  const [visaType, setVisaType] = useState('');
-  // const [submissionError, setSubmissionError] = useState(false);
-
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false); // Added loading state
+  const [visaType, setVisaType] = useState('');
 
-  // const handleButtonClick = () => {
-  //   navigate('/real-time-alerts-form-submitted');
-  //   console.log("Success");
-  // };
 
   const handleVisaTypeChange = (e) => {
     setVisaType(e.target.value);
@@ -46,6 +42,9 @@ const FormRealTime = () => {
     // If the form is valid, process the form submission
     console.log('Form data submitted:', formData);
 
+    // Show loading spinner
+    setLoading(true);
+
     // Example API request (using fetch)
     fetch('https://us-central1-getyourslots-911db.cloudfunctions.net/addRealTimeAlert', {
       method: 'POST',
@@ -61,6 +60,8 @@ const FormRealTime = () => {
       })
       .catch((error) => {
         console.error('Error:', error);
+        setLoading(false); // Hide loading spinner
+        alert('An error occurred. Please try again.');
       });
     // .then((data) => {
     //   console.log('Success:', data);
@@ -91,175 +92,180 @@ const FormRealTime = () => {
         </div>
 
         <div className="form-super-container -mt-60 lg:-mt-56 w-[96%] p-6 lg:p-12 lg:px-20 bg-white rounded-lg lg:rounded-xl border-2 border-[#a3663c] flex flex-col gap-6 lg:gap-8">
-
-          <form
-            className='form flex flex-col gap-4 md:gap-6 lg:gap-8'
-            onSubmit={handleSubmit}
-          >
-
-            <div className="names grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
-              <div className="firstName flex flex-col gap-3">
-                <label className='text-base lg:text-lg font-semibold'> First Name: </label>
-                <input
-                  className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
-                  type="text"
-                  name='FirstName'
-                  value={formData.FirstName}
-                  onChange={handleInputChange}
-                  placeholder='First Name'
-                  required />
-              </div>
-              <div className="lastName flex flex-col gap-3">
-                <label className='text-base lg:text-lg font-semibold'> Last Name: </label>
-                <input
-                  className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
-                  type="text"
-                  name='LastName'
-                  value={formData.LastName}
-                  onChange={handleInputChange}
-                  placeholder='Last Name'
-                  required />
-              </div>
+          {loading ? ( // Display loading spinner when loading
+            <div className="flex justify-center items-center h-40">
+              <ReactLoading type="bubbles" color="#A3663C" height={100} width={100} />
             </div>
+          ) : (
+            <form
+              className='form flex flex-col gap-4 md:gap-6 lg:gap-8'
+              onSubmit={handleSubmit}
+            >
 
-            <div className="contact grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
-              <div className="phone-number flex flex-col gap-3">
-                <label className='text-base lg:text-lg font-semibold' > Phone Number (WhatsApp): </label>
-                <input
-                  className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
-                  type="tel"
-                  name='PhoneNumber'
-                  placeholder="Phone Number"
-                  value={formData.PhoneNumber}
-                  onChange={handleInputChange}
-                  pattern="[0-9]{10}"
-                  required />
-              </div>
-              <div className="email flex flex-col gap-3">
-                <label className='text-base lg:text-lg font-semibold' > Email: </label>
-                <input
-                  className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
-                  type="email"
-                  name='Email'
-                  value={formData.Email}
-                  onChange={handleInputChange}
-                  placeholder='Email' />
-              </div>
-            </div>
-
-            {/* Visa Type and Appointment Selection */}
-            <div className="visa-type-details grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
-              {/* VISA Type Selection */}
-              <div className="visa-type flex flex-col gap-2">
-                <div className="heading flex flex-col gap-1">
-                  <h1 className='text-base lg:text-lg font-semibold'>VISA Type <span className='text-sm'>(Select One)</span>:</h1>
-                  <hr className='bg-[#a3663c] rounded-full h-[0.125rem] w-3/4' />
-                </div>
-                <div className="option1 flex ">
+              <div className="names grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
+                <div className="firstName flex flex-col gap-3">
+                  <label className='text-base lg:text-lg font-semibold'> First Name: </label>
                   <input
-                    className='radio-button'
-                    type="radio"
-                    id="F1-Visa"
-                    name="VisaType"
-                    value="F1-Visa"
-                    required
-                    onChange={(e) => { handleVisaTypeChange(e); handleInputChange(e); }} />
-                  <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="F1-Visa">F1 Visa</label>
+                    className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
+                    type="text"
+                    name='FirstName'
+                    value={formData.FirstName}
+                    onChange={handleInputChange}
+                    placeholder='First Name'
+                    required />
                 </div>
-                <div className="option2 flex">
+                <div className="lastName flex flex-col gap-3">
+                  <label className='text-base lg:text-lg font-semibold'> Last Name: </label>
                   <input
-                    className='radio-button'
-                    type="radio"
-                    id="B1/B2-Visa"
-                    name="VisaType"
-                    value="B1/B2-Visa"
-                    required
-                    onChange={(e) => { handleVisaTypeChange(e); handleInputChange(e); }} />
-                  <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="B1/B2-Visa">B1/B2 Visa</label>
+                    className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
+                    type="text"
+                    name='LastName'
+                    value={formData.LastName}
+                    onChange={handleInputChange}
+                    placeholder='Last Name'
+                    required />
                 </div>
               </div>
-            </div>
 
-            {/* Subscription Plans Selection */}
-            <div className="subscription-pricing grid grid-col-1 lg:grid-cols-2">
-              <div className="visa-slot-booking-price flex flex-col gap-2">
-                <div className="heading flex flex-col gap-1">
-                  <h1 className='text-base lg:text-lg font-semibold'> Subscription Plans <span className='text-sm'>(Select One)</span>:</h1>
-                  <hr className='bg-[#a3663c] rounded-full h-[0.125rem] w-11/12' />
+              <div className="contact grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
+                <div className="phone-number flex flex-col gap-3">
+                  <label className='text-base lg:text-lg font-semibold' > Phone Number (WhatsApp): </label>
+                  <input
+                    className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
+                    type="tel"
+                    name='PhoneNumber'
+                    placeholder="Phone Number"
+                    value={formData.PhoneNumber}
+                    onChange={handleInputChange}
+                    pattern="[0-9]{10}"
+                    required />
                 </div>
-                {visaType === '' && (
-                  <p className='text-base font-semibold '>(Select a VISA Type to view Subscription Plans)</p>
-                )}
-                {visaType === 'F1-Visa' && (
-                  <div className="f1-plan flex flex-col gap-2">
-                    <h4 className='text-sm font-semibold text-white bg-[#3a4740] p-3 rounded-r-full w-fit'> For F1 VISA Alerts </h4>
-                    <div className="options flex flex-col gap-1 ">
-                      <div className="option1 flex ">
-                        <input
-                          className='radio-button'
-                          type="radio"
-                          id="plan-1"
-                          name="RealTimeAlertsPrice"
-                          value="₹899 /30 days"
-                          onChange={handleInputChange}
-                          required />
-                        <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-1"> ₹899 /30 days </label>
-                      </div>
-                      <div className="option2 flex">
-                        <input
-                          className='radio-button'
-                          type="radio"
-                          id="plan-2"
-                          name="RealTimeAlertsPrice"
-                          value="₹1099 /40 days"
-                          onChange={handleInputChange}
-                          required />
-                        <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-2">₹1099 /40 days</label>
+                <div className="email flex flex-col gap-3">
+                  <label className='text-base lg:text-lg font-semibold' > Email: </label>
+                  <input
+                    className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
+                    type="email"
+                    name='Email'
+                    value={formData.Email}
+                    onChange={handleInputChange}
+                    placeholder='Email' />
+                </div>
+              </div>
+
+              {/* Visa Type and Appointment Selection */}
+              <div className="visa-type-details grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
+                {/* VISA Type Selection */}
+                <div className="visa-type flex flex-col gap-2">
+                  <div className="heading flex flex-col gap-1">
+                    <h1 className='text-base lg:text-lg font-semibold'>VISA Type <span className='text-sm'>(Select One)</span>:</h1>
+                    <hr className='bg-[#a3663c] rounded-full h-[0.125rem] w-3/4' />
+                  </div>
+                  <div className="option1 flex ">
+                    <input
+                      className='radio-button'
+                      type="radio"
+                      id="F1-Visa"
+                      name="VisaType"
+                      value="F1-Visa"
+                      required
+                      onChange={(e) => { handleVisaTypeChange(e); handleInputChange(e); }} />
+                    <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="F1-Visa">F1 Visa</label>
+                  </div>
+                  <div className="option2 flex">
+                    <input
+                      className='radio-button'
+                      type="radio"
+                      id="B1/B2-Visa"
+                      name="VisaType"
+                      value="B1/B2-Visa"
+                      required
+                      onChange={(e) => { handleVisaTypeChange(e); handleInputChange(e); }} />
+                    <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="B1/B2-Visa">B1/B2 Visa</label>
+                  </div>
+                </div>
+              </div>
+
+              {/* Subscription Plans Selection */}
+              <div className="subscription-pricing grid grid-col-1 lg:grid-cols-2">
+                <div className="visa-slot-booking-price flex flex-col gap-2">
+                  <div className="heading flex flex-col gap-1">
+                    <h1 className='text-base lg:text-lg font-semibold'> Subscription Plans <span className='text-sm'>(Select One)</span>:</h1>
+                    <hr className='bg-[#a3663c] rounded-full h-[0.125rem] w-11/12' />
+                  </div>
+                  {visaType === '' && (
+                    <p className='text-base font-semibold '>(Select a VISA Type to view Subscription Plans)</p>
+                  )}
+                  {visaType === 'F1-Visa' && (
+                    <div className="f1-plan flex flex-col gap-2">
+                      <h4 className='text-sm font-semibold text-white bg-[#3a4740] p-3 rounded-r-full w-fit'> For F1 VISA Alerts </h4>
+                      <div className="options flex flex-col gap-1 ">
+                        <div className="option1 flex ">
+                          <input
+                            className='radio-button'
+                            type="radio"
+                            id="plan-1"
+                            name="RealTimeAlertsPrice"
+                            value="₹899 /30 days"
+                            onChange={handleInputChange}
+                            required />
+                          <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-1"> ₹899 /30 days </label>
+                        </div>
+                        <div className="option2 flex">
+                          <input
+                            className='radio-button'
+                            type="radio"
+                            id="plan-2"
+                            name="RealTimeAlertsPrice"
+                            value="₹1099 /40 days"
+                            onChange={handleInputChange}
+                            required />
+                          <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-2">₹1099 /40 days</label>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
-                {visaType === 'B1/B2-Visa' && (
-                  <div className="b1-plan flex flex-col gap-2">
-                    <h4 className='text-sm font-semibold text-white bg-[#3a4740] p-3 rounded-r-full w-fit'> For B1/B2 VISA Alerts </h4>
-                    <div className="options flex flex-col gap-1 ">
-                      <div className="option1 flex ">
-                        <input
-                          className='radio-button'
-                          type="radio"
-                          id="plan-3"
-                          name="RealTimeAlertsPrice"
-                          value="₹1999 /30 days"
-                          onChange={handleInputChange}
-                          required />
-                        <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-3"> ₹1999 /30 days </label>
-                      </div>
-                      <div className="option2 flex">
-                        <input
-                          className='radio-button'
-                          type="radio"
-                          id="plan-4"
-                          name="RealTimeAlertsPrice"
-                          value="₹2399 /40 days"
-                          onChange={handleInputChange}
-                          required />
-                        <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-4">₹2399 /40 days</label>
+                  )}
+                  {visaType === 'B1/B2-Visa' && (
+                    <div className="b1-plan flex flex-col gap-2">
+                      <h4 className='text-sm font-semibold text-white bg-[#3a4740] p-3 rounded-r-full w-fit'> For B1/B2 VISA Alerts </h4>
+                      <div className="options flex flex-col gap-1 ">
+                        <div className="option1 flex ">
+                          <input
+                            className='radio-button'
+                            type="radio"
+                            id="plan-3"
+                            name="RealTimeAlertsPrice"
+                            value="₹1999 /30 days"
+                            onChange={handleInputChange}
+                            required />
+                          <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-3"> ₹1999 /30 days </label>
+                        </div>
+                        <div className="option2 flex">
+                          <input
+                            className='radio-button'
+                            type="radio"
+                            id="plan-4"
+                            name="RealTimeAlertsPrice"
+                            value="₹2399 /40 days"
+                            onChange={handleInputChange}
+                            required />
+                          <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-4">₹2399 /40 days</label>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
-            </div>
 
-            {/* Submit Button */}
-            <button
-              type="submit"
-              value="Proceed"
-              className="submit-button flex bg-[#A3663C] text-lg lg:text-xl text-white w-fit font-semibold p-2 lg:p-3 px-5 lg:px-10 rounded-full gap-2 items-center hover:cursor-pointer">
-              <p>Proceed</p>
-              <img className='w-5 hover:cursor-pointer ' src={ArrowWhite} alt="Arrow" />
-            </button>
-          </form>
+              {/* Submit Button */}
+              <button
+                type="submit"
+                value="Proceed"
+                className="submit-button flex bg-[#A3663C] text-lg lg:text-xl text-white w-fit font-semibold p-2 lg:p-3 px-5 lg:px-10 rounded-full gap-2 items-center hover:cursor-pointer">
+                <p>Proceed</p>
+                <img className='w-5 hover:cursor-pointer ' src={ArrowWhite} alt="Arrow" />
+              </button>
+            </form>
+          )}
           {/* Contact Us */}
           <hr className='bg-[#a3663c] rounded-full h-[0.125rem]' />
           <ContactUs />
