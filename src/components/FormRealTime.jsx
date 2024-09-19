@@ -45,7 +45,7 @@ const FormRealTime = () => {
     // Show loading spinner
     setLoading(true);
 
-    // Example API request (using fetch)
+    // API request (using fetch)
     fetch('https://us-central1-getyourslots-911db.cloudfunctions.net/addRealTimeAlert', {
       method: 'POST',
       headers: {
@@ -56,28 +56,15 @@ const FormRealTime = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
-        navigate('/real-time-alerts-form-submitted');
+
+        // Navigate to the submission success page
+        navigate('/real-time-alerts-FreshersVisaForm-submitted');
       })
       .catch((error) => {
         console.error('Error:', error);
         setLoading(false); // Hide loading spinner
         alert('An error occurred. Please try again.');
       });
-    // .then((data) => {
-    //   console.log('Success:', data);
-    //   // Redirect after successful submission
-    //   if (data.success) { // Assuming the API returns a success flag
-    //     console.log("Success:", data);
-    //     navigate('/real-time-alerts-form-submitted');
-    //     // navigate('/real-time-alerts-form-submitted');
-    //   } else {
-    //     throw new Error(data.message || 'Submission failed.'); // Handle specific errors from the server
-    //   }
-    // })
-    // .catch((error) => {
-    //   console.error('Error:', error);
-    //   alert(`There was an error submitting your form: ${error.message}`);
-    // });
   };
 
 

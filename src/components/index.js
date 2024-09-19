@@ -6,6 +6,8 @@ import Subscriptions from './Subscriptions';
 import Provisions1 from './Provisions1';
 import Provisions2 from './Provisions2';
 import RealTimeAlerts from './RealTimeAlerts';
+import FresherRealTimeAlerts from "./FresherRealTimeAlerts.jsx";
+import RejectedVISARealTimeAlerts from "./RejectedVISARealTimeAlerts.jsx";
 import FormRealTime from "./FormRealTime";
 import SuccessRealTimeAlerts from "./SuccessRealTimeAlerts";
 import VisaSlots from './VisaSlots';
@@ -17,6 +19,7 @@ import TestimonialsSection from "./TestimonialsSection";
 import Testimonial from "./Testimonial.jsx"
 import TestimonialsArray from "./TestimonialsArray.jsx";
 import ContactUs from "./ContactUs.jsx";
+import ScrollToTop from "./ScrollToATop.jsx";
 
 export{
     
@@ -28,6 +31,8 @@ export{
     Provisions1,
     Provisions2,
     RealTimeAlerts,
+    FresherRealTimeAlerts,
+    RejectedVISARealTimeAlerts,
     FormRealTime,
     SuccessRealTimeAlerts,
     VisaSlots,
@@ -38,6 +43,7 @@ export{
     TestimonialsArray,
     Footer,
     ContactUs,
-    NotFound
+    NotFound,
+    ScrollToTop
     
 }
