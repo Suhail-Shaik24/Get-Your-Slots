@@ -20,7 +20,7 @@ const SuccessVisaSlotBooking = () => {
           </div>
           <div className="post-submission-message bg-[#3A4740] rounded flex flex-col gap-4 p-6 items-center justify-start">
             <h3 className='text-center text-white font-bold text-xl'> Our Team will Contact You Shortly </h3>
-            <a href='https://wa.me/9398864908' target='_blank' className="whatsApp flex flex-col gap-1 items-center">
+            <a href='https://wa.me/8247347222' target='_blank' className="whatsApp flex flex-col gap-1 items-center">
               <img className='w-8' src={WhatsApp3} alt="WhatsApp" />
               <p className='text-xs text-white  lg:text-base font-semibold'>WhatsApp </p>
             </a>

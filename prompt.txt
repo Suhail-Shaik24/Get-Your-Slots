@@ -1,31 +1,274 @@
-// import { useLocation, useNavigate } from 'react-router-dom';
-// import { useEffect } from 'react';
-import React from "react";
-import { Navbar, ContactUs, QRFreshersRealTime } from "../components";
-import { ThankYouIcon, WhatsApp3 } from "../assets";
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import ReactLoading from 'react-loading';
+import { Navbar, ContactUs } from '../components'
+import { ArrowWhite } from '../assets';
+import '../css/Form.css';
 
-const SuccessRealTimeAlerts = () => {
+const FormRealTime = () => {
+
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false); // Added loading state
+  const [visaType, setVisaType] = useState('');
+
+  const [currentPage, setCurrentPage] = useState(1); // Track current page (1 = info, 2 = payment)
+
+  const [formData, setFormData] = useState({
+    FirstName: '',
+    LastName: '',
+    PhoneNumber: '',
+    Email: '',
+    VisaType: '',
+    RealTimeAlertsPrice: '',
+    TransactionID: '', // Added field for Transaction ID
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleVisaTypeChange = (e) => {
+    setVisaType(e.target.value);
+    handleInputChange(e);
+  };
+
+  const handleNext = (e) => {
+    e.preventDefault();
+    // Validate form data before proceeding to the next page
+    if (!formData.FirstName || !formData.LastName || !formData.PhoneNumber || !formData.RealTimeAlertsPrice) {
+      alert('Please Fill All the Required Fields.');
+      return;
+    }
+    setCurrentPage(2);
+  };
+
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Validate the form data
+    if (!formData.FirstName || !formData.LastName || !formData.PhoneNumber || !formData.RealTimeAlertsPrice) {
+      alert('Please Fill All the Required Fields.');
+      return;
+    }
+
+    // If the form is valid, process the form submission
+    console.log('Form data submitted:', formData);
+
+    // Show loading spinner
+    setLoading(true);
+
+    // API request (using fetch)
+    fetch('https://us-central1-getyourslots-911db.cloudfunctions.net/addRealTimeAlert', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+
+        // Navigate to the submission success page
+        navigate('/real-time-alerts-form-submitted');
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        setLoading(false); // Hide loading spinner
+        alert('An error occurred. Please try again.');
+      });
+  };
+
 
   return (
     <div className="p-4 md:p-5 lg:p-12 flex flex-col gap-3">
       <Navbar />
+
       <div className='flex flex-col items-center justify-center h-full font-[Open_Sans]'>
 
         <div className="form-container w-full bg-[#A3663C] h-72 p-3 lg:p-5 rounded-md flex flex-col gap-4">
-          <h1 className='text-xl lg:text-2xl text-white font-bold font-["Open_Sans"]'> Real Time Alerts </h1>
+          <h1 className='text-xl lg:text-2xl text-white font-bold font-["Open_Sans"]'> Real Time Alerts - Fresher Visa </h1>
         </div>
 
-        <div className="Thank-You-Page -mt-60 lg:-mt-56 w-[96%] p-6 lg:p-12 lg:px-20 bg-white rounded-lg lg:rounded-xl border-2 border-[#a3663c] flex flex-col gap-6 lg:gap-8">
-          <img className="aspect-square h-24 lg:h-40" src={ThankYouIcon} alt="Thank You" />
-          <div className="thank-you-text flex flex-col gap-1 lg:gap-3">
-            <h1 className="text-xl lg:text-5xl text-center">Thank You</h1>
-            <h3 className="text-base lg:text-xl text-center"> Your Form has been Submitted</h3>
-          </div>
-          <div className="post-submission-message bg-[#3A4740] rounded flex flex-col gap-4 p-6 items-center justify-start">
-            <h3 className='text-center text-white font-bold text-xl'> Our Team will Contact You Shortly </h3>
-            <QRFreshersRealTime />
-          </div>
+        <div className="form-super-container -mt-60 lg:-mt-56 w-[96%] p-6 lg:p-12 lg:px-20 bg-white rounded-lg lg:rounded-xl border-2 border-[#a3663c] flex flex-col gap-6 lg:gap-8">
+          {loading ? ( // Display loading spinner when loading
+            <div className="flex justify-center items-center h-40">
+              <ReactLoading type="bubbles" color="#A3663C" height={100} width={100} />
+            </div>
+          ) : (
+            
+            <form
+              className='form flex flex-col gap-4 md:gap-6 lg:gap-8'
+              onSubmit={handleSubmit}
+            >
 
+              <div className="names grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
+                <div className="firstName flex flex-col gap-3">
+                  <label className='text-base lg:text-lg font-semibold'> First Name: </label>
+                  <input
+                    className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
+                    type="text"
+                    name='FirstName'
+                    value={formData.FirstName}
+                    onChange={handleInputChange}
+                    placeholder='First Name'
+                    required />
+                </div>
+                <div className="lastName flex flex-col gap-3">
+                  <label className='text-base lg:text-lg font-semibold'> Last Name: </label>
+                  <input
+                    className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
+                    type="text"
+                    name='LastName'
+                    value={formData.LastName}
+                    onChange={handleInputChange}
+                    placeholder='Last Name'
+                    required />
+                </div>
+              </div>
+
+              <div className="contact grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
+                <div className="phone-number flex flex-col gap-3">
+                  <label className='text-base lg:text-lg font-semibold' > Phone Number (WhatsApp): </label>
+                  <input
+                    className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
+                    type="tel"
+                    name='PhoneNumber'
+                    placeholder="Phone Number"
+                    value={formData.PhoneNumber}
+                    onChange={handleInputChange}
+                    pattern="[0-9]{10}"
+                    required />
+                </div>
+                <div className="email flex flex-col gap-3">
+                  <label className='text-base lg:text-lg font-semibold' > Email: </label>
+                  <input
+                    className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
+                    type="email"
+                    name='Email'
+                    value={formData.Email}
+                    onChange={handleInputChange}
+                    placeholder='Email' />
+                </div>
+              </div>
+
+              {/* Visa Type and Appointment Selection */}
+              <div className="visa-type-details grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
+                {/* VISA Type Selection */}
+                <div className="visa-type flex flex-col gap-2">
+                  <div className="heading flex flex-col gap-1">
+                    <h1 className='text-base lg:text-lg font-semibold'>VISA Type <span className='text-sm'>(Select One)</span>:</h1>
+                    <hr className='bg-[#a3663c] rounded-full h-[0.125rem] w-3/4' />
+                  </div>
+                  <div className="option1 flex ">
+                    <input
+                      className='radio-button'
+                      type="radio"
+                      id="F1-Visa"
+                      name="VisaType"
+                      value="F1-Visa"
+                      required
+                      onChange={(e) => { handleVisaTypeChange(e); handleInputChange(e); }} />
+                    <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="F1-Visa">F1 Visa</label>
+                  </div>
+                  <div className="option2 flex">
+                    <input
+                      className='radio-button'
+                      type="radio"
+                      id="B1/B2-Visa"
+                      name="VisaType"
+                      value="B1/B2-Visa"
+                      required
+                      onChange={(e) => { handleVisaTypeChange(e); handleInputChange(e); }} />
+                    <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="B1/B2-Visa">B1/B2 Visa</label>
+                  </div>
+                </div>
+              </div>
+
+              {/* Subscription Plans Selection */}
+              <div className="subscription-pricing grid grid-col-1 lg:grid-cols-2">
+                <div className="visa-slot-booking-price flex flex-col gap-2">
+                  <div className="heading flex flex-col gap-1">
+                    <h1 className='text-base lg:text-lg font-semibold'> Subscription Plans <span className='text-sm'>(Select One)</span>:</h1>
+                    <hr className='bg-[#a3663c] rounded-full h-[0.125rem] w-11/12' />
+                  </div>
+                  {visaType === '' && (
+                    <p className='text-base font-semibold '>(Select a VISA Type to view Subscription Plans)</p>
+                  )}
+                  {visaType === 'F1-Visa' && (
+                    <div className="f1-plan flex flex-col gap-2">
+                      <h4 className='text-sm font-semibold text-white bg-[#3a4740] p-3 rounded-r-full w-fit'> For F1 VISA Alerts </h4>
+                      <div className="options flex flex-col gap-1 ">
+                        <div className="option1 flex ">
+                          <input
+                            className='radio-button'
+                            type="radio"
+                            id="plan-1"
+                            name="RealTimeAlertsPrice"
+                            value="₹899 /30 days"
+                            onChange={handleInputChange}
+                            required />
+                          <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-1"> ₹899 /30 days </label>
+                        </div>
+                        <div className="option2 flex">
+                          <input
+                            className='radio-button'
+                            type="radio"
+                            id="plan-2"
+                            name="RealTimeAlertsPrice"
+                            value="₹1099 /40 days"
+                            onChange={handleInputChange}
+                            required />
+                          <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-2">₹1099 /40 days</label>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  {visaType === 'B1/B2-Visa' && (
+                    <div className="b1-plan flex flex-col gap-2">
+                      <h4 className='text-sm font-semibold text-white bg-[#3a4740] p-3 rounded-r-full w-fit'> For B1/B2 VISA Alerts </h4>
+                      <div className="options flex flex-col gap-1 ">
+                        <div className="option1 flex ">
+                          <input
+                            className='radio-button'
+                            type="radio"
+                            id="plan-3"
+                            name="RealTimeAlertsPrice"
+                            value="₹1999 /30 days"
+                            onChange={handleInputChange}
+                            required />
+                          <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-3"> ₹1999 /30 days </label>
+                        </div>
+                        <div className="option2 flex">
+                          <input
+                            className='radio-button'
+                            type="radio"
+                            id="plan-4"
+                            name="RealTimeAlertsPrice"
+                            value="₹2399 /40 days"
+                            onChange={handleInputChange}
+                            required />
+                          <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-4">₹2399 /40 days</label>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                value="Proceed"
+                className="submit-button flex bg-[#A3663C] text-lg lg:text-xl text-white w-fit font-semibold p-2 lg:p-3 px-5 lg:px-10 rounded-full gap-2 items-center hover:cursor-pointer">
+                <p>Proceed</p>
+                <img className='w-5 hover:cursor-pointer ' src={ArrowWhite} alt="Arrow" />
+              </button>
+            </form>
+          )}
           {/* Contact Us */}
           <hr className='bg-[#a3663c] rounded-full h-[0.125rem]' />
           <ContactUs />
@@ -35,85 +278,4 @@ const SuccessRealTimeAlerts = () => {
   )
 }
 
-export default SuccessRealTimeAlerts;
-
-
-import React from "react";
-import QRCode from "qrcode.react";
-
-const QRFreshersRealTime = () => {
-  const UPI_ID = "chaitusane777-1@okicici";
-  const NAME = "Chaitu%20Sane";
-  const amount = "80";
-  const Transaction_Message = "Fresher Visa Real-Time Application Fee";
-
-  const upiUrl = `upi://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${Transaction_Message}`;
-
-  return (
-    <div>
-      <h2>Scan to Pay ₹{amount}</h2>
-      <h2> Paying to {NAME}, UPI ID = {upiUrl}</h2>
-      <QRCode value={upiUrl} />
-    </div>
-  );
-};
-
-export default QRFreshersRealTime;
-
-
-import Navbar from "./Navbar";
-import Home from "./Home";
-import TopPart from "./TopPart";
-import Features from "./Features";
-import Subscriptions from "./Subscriptions";
-import Provisions1 from "./Provisions1";
-import Provisions2 from "./Provisions2";
-import RealTimeAlerts from "./RealTimeAlerts";
-import FresherRealTimeAlerts from "./FresherRealTimeAlerts.jsx";
-import FormRealTime from "./FormRealTime";
-import RejectedVISARealTimeAlerts from "./RejectedVISARealTimeAlerts.jsx";
-import FormRefusedVisaRealTime from "./FormRefusedVisaRealTime.jsx";
-import SuccessRealTimeAlerts from "./SuccessRealTimeAlerts";
-import VisaSlots from "./VisaSlots";
-import SuccessVisaSlotBooking from "./SuccessVisaSlotBooking.jsx";
-import FormVisaSlot from "./FormVisaSlot";
-import Footer from "./Footer";
-import NotFound from "./NotFound";
-import TestimonialsSection from "./TestimonialsSection";
-import Testimonial from "./Testimonial.jsx";
-import TestimonialsArray from "./TestimonialsArray.jsx";
-import ContactUs from "./ContactUs.jsx";
-import ScrollToTop from "./ScrollToATop.jsx";
-//QR imports
-import QRFreshersRealTime from "./QRCodes/QRFreshersRealTime.jsx";
-
-export {
-    Navbar,
-    Home,
-    TopPart,
-    Features,
-    Subscriptions,
-    Provisions1,
-    Provisions2,
-    RealTimeAlerts,
-    FresherRealTimeAlerts,
-    FormRealTime,
-    RejectedVISARealTimeAlerts,
-    FormRefusedVisaRealTime,
-    SuccessRealTimeAlerts,
-    VisaSlots,
-    FormVisaSlot,
-    SuccessVisaSlotBooking,
-    TestimonialsSection,
-    Testimonial,
-    TestimonialsArray,
-    Footer,
-    ContactUs,
-    NotFound,
-    ScrollToTop,
-    QRFreshersRealTime,
-};
-
-
-
-This is code. Why am I getting this error: Uncaught SyntaxError: The requested module 'http://localhost:5173/node_modules/.vite/deps/qrcode__react.js?v=09738248' doesn't provide an export named: 'default'
+export default FormRealTime

@@ -146,7 +146,6 @@ const FormRefusedVisaRealTime = () => {
                       id="F1-Visa"
                       name="VisaType"
                       value="F1-Visa"
-                      checked
                       required
                       onChange={handleInputChange} />
                     <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="F1-Visa">F1 Visa</label>

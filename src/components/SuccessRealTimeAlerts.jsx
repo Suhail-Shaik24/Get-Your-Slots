@@ -1,7 +1,7 @@
 // import { useLocation, useNavigate } from 'react-router-dom';
 // import { useEffect } from 'react';
 import React from "react";
-import { Navbar, ContactUs, QRFreshersRealTime } from "../components";
+import { Navbar, ContactUs } from "../components";
 import { ThankYouIcon, WhatsApp3 } from "../assets";
 
 const SuccessRealTimeAlerts = () => {
@@ -23,7 +23,6 @@ const SuccessRealTimeAlerts = () => {
           </div>
           <div className="post-submission-message  rounded flex flex-col gap-4 p-6 items-center justify-start">
             <h3 className='text-center text-white font-bold text-xl'> Our Team will Contact You Shortly </h3>
-            <QRFreshersRealTime />
           </div>
 
           {/* Contact Us */}
