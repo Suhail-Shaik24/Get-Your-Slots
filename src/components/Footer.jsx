@@ -53,7 +53,7 @@ const Footer = () => {
             </div>
             <div className="links flex flex-col gap-2">
               <a href="/" target='_blank'><h5 className='text-base hover:underline hover:font-bold'>Home </h5></a>
-              <a href="#/contact" target='_blank'><h5 className='text-base hover:underline hover:font-bold'>Contact Us </h5></a>
+              <a href="#/contact-us" target='_blank'><h5 className='text-base hover:underline hover:font-bold'>Contact Us </h5></a>
             </div>
           </div>
         </div>

@@ -39,7 +39,7 @@ const FormVisaSlot = () => {
     // Show loading spinner
     setLoading(true);
 
-    fetch('https://us-central1-getyourslots-911db.cloudfunctions.net/addVisaSlotBooking', {
+    fetch('https://us-central1-getyourslots-3bf5f.cloudfunctions.net/addVisaSlotBooking', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

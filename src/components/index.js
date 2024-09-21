@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import Home from "./Home";
 import TopPart from "./TopPart";
+import DelayedAlerts from "./DelayedAlerts.jsx";
 import Features from "./Features";
 import Subscriptions from "./Subscriptions";
 import Provisions1 from "./Provisions1";
@@ -21,6 +22,7 @@ import Testimonial from "./Testimonial.jsx";
 import TestimonialsArray from "./TestimonialsArray.jsx";
 import ContactUs from "./ContactUs.jsx";
 import ScrollToTop from "./ScrollToATop.jsx";
+import ContactUsPage from "./ContactUsPage.jsx";
 //QR imports
 import QRFreshersRealTime from "./QRCodes/QRFreshersRealTime.jsx";
 
@@ -28,6 +30,7 @@ export {
     Navbar,
     Home,
     TopPart,
+    DelayedAlerts,
     Features,
     Subscriptions,
     Provisions1,
@@ -49,4 +52,5 @@ export {
     NotFound,
     ScrollToTop,
     QRFreshersRealTime,
+    ContactUsPage
 };

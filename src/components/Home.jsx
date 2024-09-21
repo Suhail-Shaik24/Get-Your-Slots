@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { TopPart, Features, Subscriptions, TestimonialsSection } from '../components'
+import { TopPart, DelayedAlerts, Features, Subscriptions, TestimonialsSection } from '../components'
 
 const Home = () => {
 
@@ -14,6 +14,7 @@ const Home = () => {
                 scrollToFeatures={() => featuresRef.current?.scrollIntoView({ behavior: 'smooth' })}
                 scrollToSubscriptions={() => subscriptionsRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
+            <DelayedAlerts/>
             <Features
                 ref={featuresRef}
                 scrollToRealTime={() => realTimeAlertsRef.current?.scrollIntoView({ behavior: 'smooth' })}

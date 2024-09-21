@@ -1,8 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { QRFreshersRealTime } from '../components'; // Install this library for generating QR codes
 import ReactLoading from 'react-loading';
-import { Navbar, ContactUs } from '../components';
+import { Navbar, ContactUs, QRFreshersRealTime } from '../components';
 import { ArrowWhite, ArrowBlack } from '../assets';
 import '../css/Form.css';
 
@@ -12,6 +11,7 @@ const FormRealTime = () => {
   const [visaType, setVisaType] = useState('');
   const [currentPage, setCurrentPage] = useState(1); // Track current page (1 = info, 2 = payment)
   const [verificationCode, setVerificationCode] = useState(''); // Store the generated verification code
+  const [isChecked, setIsChecked] = useState(false);
 
   const [formData, setFormData] = useState({
     FirstName: '',
@@ -20,6 +20,8 @@ const FormRealTime = () => {
     Email: '',
     VisaType: '',
     RealTimeAlertsPrice: '',
+    paymentApp: 'GooglePay',  // Default value
+    paymentAppOther: ''   // For "Other" option
   });
 
 
@@ -49,14 +51,10 @@ const FormRealTime = () => {
 
   const handlePaymentSubmit = (e) => {
     e.preventDefault();
-    // if (!formData.TransactionID) {
-    //   alert('Please Enter the Transaction ID.');
-    //   return;
-    // }
     setLoading(true);
 
     // Submit the form data to API
-    fetch('https://us-central1-getyourslots-911db.cloudfunctions.net/addRealTimeAlert', {
+    fetch('https://us-central1-getyourslots-3bf5f.cloudfunctions.net/addRealTimeAlert', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -75,6 +73,25 @@ const FormRealTime = () => {
       });
   };
 
+  const handleCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
+  };
+  const handleSelectChange = (e) => {
+    const { value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      paymentApp: value,
+      paymentAppOther: ''  // Reset the "Other" input when the dropdown is changed
+    }));
+  };
+  const handleOtherInputChange = (e) => {
+    const { value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      paymentAppOther: value
+    }));
+  };
+
   useEffect(() => {
     if (currentPage === 2) {
       // Generate the random verification code when moving to the payment section
@@ -91,6 +108,8 @@ const FormRealTime = () => {
       }));
     }
   }, [currentPage]);
+
+
 
   // Memoize QR Code to prevent re-renders when other inputs change
   const memoizedQRCode = useMemo(() => {
@@ -295,6 +314,61 @@ const FormRealTime = () => {
 
                   {/* displaying qr code */}
                   {memoizedQRCode}
+                  <div className='payment-checkbox flex flex-col gap-3 p-4 border rounded-md bg-gray-50 hover:bg-gray-100'>
+                    <div className="payment-confirmation flex items-center gap-2">
+                      <input
+                        className='w-6 h-6 hover:cursor-pointer focus:ring-blue-500 focus:ring-2'
+                        type="checkbox"
+                        required
+                        id="payment-confirmation"
+                        onChange={handleCheckboxChange} // Handle checkbox change
+                      />
+                      <label
+                        className='text-xl font-bold text-gray-700 hover:text-gray-900 cursor-pointer select-none'
+                        htmlFor="payment-confirmation"
+                      >
+                        I have made the Payment
+                      </label>
+                    </div>
+
+                    {/* Conditionally render payment-app dropdown based on checkbox status */}
+                    {isChecked && (
+                      <div className="payment-app space-y-4">
+                        <label
+                          htmlFor="payment-app"
+                          className="block text-xl font-medium text-gray-700"
+                        >
+                          Which app have you used for Payment?
+                        </label>
+
+                        <select
+                          name="paymentApp"
+                          id="payment-app"
+                          onChange={handleSelectChange}
+                          value={formData.paymentApp}
+                          required
+                          className="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        >
+                          <option value="GooglePay">GooglePay</option>
+                          <option value="PhonePay">PhonePay</option>
+                          <option value="Paytm">Paytm</option>
+                          <option value="Other">Other</option>
+                        </select>
+
+                        {/* Show input field when "Other" is selected */}
+                        {formData.paymentApp === 'Other' && (
+                          <input
+                            type="text"
+                            placeholder="Enter payment app"
+                            name="paymentAppOther"
+                            value={formData.paymentAppOther || ''}
+                            onChange={handleOtherInputChange}
+                            className="block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                          />
+                        )}
+                      </div>
+                    )}
+                  </div>
 
                   <button
                     type="button"
@@ -310,7 +384,7 @@ const FormRealTime = () => {
                     value="submit"
                     className="submit-button flex bg-[#A3663C] text-lg lg:text-xl text-white font-semibold p-2 lg:p-3 px-5 lg:px-10 rounded-full gap-2 items-center justify-center hover:cursor-pointer">
                     <p>Submit</p>
-                    <img className='w-5 hover:cursor-pointer ' src={ArrowWhite} alt="Arrow" />
+                    <img className='w-5 hover:cursor-pointer' src={ArrowWhite} alt="Arrow" />
                   </button>
                 </form>
               )}
