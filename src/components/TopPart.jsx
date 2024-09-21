@@ -19,7 +19,7 @@ const TopPart = ({scrollToFeatures, scrollToSubscriptions}) => {
 
                         <h1 className='text-[#3a4740] text-3xl text-center md:text-left lg:text-left font-bold sml:text-3xl md:text-5xl md:w-full lg:text-6xl lg:w-full '>Start Your <br /> <span className='text-[#a3663c]'> American </span>Dream</h1>
 
-                        <h4 className='text-[12px] max-w-80 text-center md:text-left lg:text-left sml:text-sm md:text-base lg:text-lg lg:leading-6'>Start your VISA journey with <strong className="text-[#a3663c]">GET YOUR SLOTS </strong> with seamless appointment manage and Real Time Alerts.</h4>
+                        <h4 className='text-[12px] max-w-[21rem] text-center md:text-left lg:text-left sml:text-sm md:text-base lg:text-lg lg:leading-6'>Start your VISA journey with <strong className="text-[#a3663c]">GET YOUR SLOTS </strong> with Seamless Appointment management and Real Time Alerts.</h4>
 
                     </div>
                     <div className="buttons flex gap-1 md:gap-2 lg:gap-3">
