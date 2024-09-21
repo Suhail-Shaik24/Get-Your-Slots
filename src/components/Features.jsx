@@ -26,7 +26,7 @@ const Features = forwardRef(({scrollToRealTime, scrollToVisaSlotBooking}, ref) =
               className='bg-white w-3/5 border border-[#A3663C] text-black text-[12px] p-2 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-sm sml:p-2 sml:px-3 md:text-sm md:p-2 md:px-3 md:rounded-md lg:text-base lg:p-3 lg:px-5 lg:rounded-md' 
               type="button"
               onClick={scrollToRealTime}>
-              <p>Get Started</p>
+              <p>Get Real time Alerts</p>
               <img className='w-3 md:w-4 lg:w-5' src={ArrowBlack} alt="Arrow" />
             </button>
           </div>
@@ -54,7 +54,7 @@ const Features = forwardRef(({scrollToRealTime, scrollToVisaSlotBooking}, ref) =
               className='bg-white w-3/5 border border-[#A3663C] text-black text-[12px] p-2 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-sm sml:p-2 sml:px-3 md:text-sm md:p-2 md:px-3 md:rounded-md lg:text-base lg:p-3 lg:px-5 lg:rounded-md' 
               type="button"
               onClick={scrollToVisaSlotBooking}>
-              <p>Get Started</p>
+              <p>Book a Visa Slot</p>
               <img className='w-3 md:w-4 lg:w-5' src={ArrowBlack} alt="Arrow" />
             </button>
           </div>

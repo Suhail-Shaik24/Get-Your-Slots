@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 import { Navbar, ContactUs, QRFreshersRealTime } from '../components';
-import { ArrowWhite, ArrowBlack } from '../assets';
+import { ArrowWhite, ArrowBlack, GooglePay, Paytm, PhonePe } from '../assets';
 import '../css/Form.css';
 
 const FormRealTime = () => {
@@ -23,7 +23,6 @@ const FormRealTime = () => {
     paymentApp: 'GooglePay',  // Default value
     paymentAppOther: ''   // For "Other" option
   });
-
 
   const handleInputChange = (e) => {
     const { name, value, dataset } = e.target;

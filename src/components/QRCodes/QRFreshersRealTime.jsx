@@ -7,7 +7,7 @@ const QRFreshersRealTime = ({ amount, verificationCode }) => {
   // const amount = "899";
   // const Transaction_Message = {verificationCode};
 
-  const upiUrl = `upi://pay?pa=${UPI_ID}&pn=${NAME}&am=1&cu=INR&tn=${verificationCode}`;
+  const upiUrl = `upi://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}`;
 
   return (
     <div className="border-2 border-[#a3663c] w-full p-4 rounded-lg flex flex-col gap-3 justify-center items-center bg-gray-100 shadow-lg">
