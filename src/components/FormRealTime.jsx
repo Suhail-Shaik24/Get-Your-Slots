@@ -106,7 +106,7 @@ const FormRealTime = () => {
   const memoizedQRCode = useMemo(() => {
     return selectedApp ? (
       <div className="transition-all duration-700 ease-in-out">
-        <QRFreshersRealTime amount={formData.paymentAmount} verificationCode={verificationCode} />
+        <QRFreshersRealTime amount={formData.paymentAmount} verificationCode={verificationCode} selectedApp={selectedApp}/>
       </div>
     ) : null;
   }, [formData.paymentAmount, verificationCode, selectedApp]);
