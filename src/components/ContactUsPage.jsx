@@ -57,7 +57,7 @@ const ContactUs = () => {
                         {/* Social Links */}
                         <div className="social-links flex justify-center gap-3 items-center space-x-6 mb-6">
                             <a
-                                href="https://instagram.com"
+                                href="https://www.instagram.com/getyourslots/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-700 hover:text-gray-900 text-4xl"
@@ -66,16 +66,16 @@ const ContactUs = () => {
                                 <img className='w-12' src={Instagram} />
                             </a>
                             <a
-                                href="https://youtube.com"
+                                href="https://x.com/getyourslots"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-700 hover:text-gray-900 text-4xl"
-                                aria-label="YouTube"
+                                aria-label="Twitter"
                             >
-                                <img className='w-12' src={YouTube} />
+                                <img className='w-10' src={X} />
                             </a>
                             <a
-                                href="https://linkedin.com"
+                                href="https://linkedin.com/in/get-your-slots-217957329/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-700 hover:text-gray-900 text-4xl"
@@ -84,14 +84,14 @@ const ContactUs = () => {
                                 <img className='w-12' src={LinkedIn} />
                             </a>
                             <a
-                                href="https://twitter.com"
+                                href="https://youtube.com/@getyourslots"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-700 hover:text-gray-900 text-4xl"
-                                aria-label="Twitter"
+                                aria-label="YouTube"
                             >
-                                <img className='w-10' src={X} />
-                            </a>
+                                <img className='w-12' src={YouTube} />
+                            </a>                     
                         </div>
                     </div>
                 </div>

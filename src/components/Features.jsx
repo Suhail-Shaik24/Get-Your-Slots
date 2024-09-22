@@ -19,11 +19,11 @@ const Features = forwardRef(({scrollToRealTime, scrollToVisaSlotBooking}, ref) =
               <h1 className='text-xl sml:text-2xl md:text-2xl lg:text-4xl font-bold'>Real Time Alerts</h1>
               <h3 className='text-xs sml:text-lg md:text-lg lg:text-xl font-semibold'>Your Gateway to Secure Slots</h3>
             </div>
-            <div className="feature1Content  text-[8px] w-11/12 sml:w-9/12 sml:text-sm md:w-9/12 md:text-sm lg:w-full lg:text-base">
+            <div className="feature1Content text-[8px] w-11/12 sml:w-9/12 sml:text-sm md:w-9/12 md:text-sm lg:w-full lg:text-base">
               <p>Never miss out on a visa slot again! With our Real-Time Alerts, you'll get quick notifications as soon as new slots are available. It's like having a personal assistant to keep you informed and help you book your slot quickly and easily.</p>
             </div>
             <button 
-              className='bg-white w-3/5 border border-[#A3663C] text-black text-[12px] p-2 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-sm sml:p-2 sml:px-3 md:text-sm md:p-2 md:px-3 md:rounded-md lg:text-base lg:p-3 lg:px-5 lg:rounded-md' 
+              className='bg-white w-4/5 border border-[#A3663C] text-black text-[12px] p-2 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-sm sml:p-2 sml:px-3 md:text-sm md:p-2 md:px-3 md:rounded-md lg:text-base lg:p-3 lg:px-5 lg:rounded-md' 
               type="button"
               onClick={scrollToRealTime}>
               <p>Get Real time Alerts</p>

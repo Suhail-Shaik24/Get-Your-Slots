@@ -1,9 +1,9 @@
 import React from "react";
 import { QRCodeSVG } from "qrcode.react";
 
-const QRFreshersRealTime = ({ amount }) => {
-  const UPI_ID = "khajaaqib5@okhdfcbank";
-  const NAME = "Khaja%20Aaqib";
+const QRFreshersRealTime = ({ amount, verificationCode }) => {
+  const UPI_ID = "chaitusane777-1@okicici";
+  const NAME = "Chaitu%20Sane";
   // const amount = "899";
   const Transaction_Message = "suhail";
 
