@@ -18,26 +18,29 @@ const QRFreshersRealTime = ({ amount, verificationCode, selectedApp }) => {
   // const paytmPlayStoreLink = 'https://play.google.com/store/apps/details?id=com.paytm.app';
 
   const handlePayment = () => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isAndroid = /android/i.test(userAgent);
+    const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+
     if (selectedApp === "GooglePay") {
-      window.location.href = gpayLink;
-
-      // Set a timeout to redirect to Play Store if Google Pay isn't installed
-      setTimeout(() => {
-        window.location.href = gpayPlayStoreLink;
-      }, 2500);
+      if (isAndroid) {
+        const gpayLink = `intent://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
+        window.location.href = gpayLink;
+      } else if (isIOS) {
+        // Open Google Pay UPI link for iOS (generic UPI link)
+        const gpayUrl = `upi://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}`;
+        window.location.href = gpayUrl;
+      }
     } else if (selectedApp === "Paytm") {
-      window.location.href = paytmLink;
-
-      // Set a timeout to redirect to Play Store if Paytm isn't installed
-      setTimeout(() => {
-        window.location.href = paytmPlayStoreLink;
-      }, 2500);
+      if (isAndroid) {
+        const paytmLink = `intent://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}#Intent;scheme=paytm;package=com.paytm.app;end`;
+        window.location.href = paytmLink;
+      } else if (isIOS) {
+        // Open a generic UPI link for Paytm on iOS
+        const paytmUrl = `upi://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}`;
+        window.location.href = paytmUrl;
+      }
     }
-
-    // Set a timeout to redirect to Play Store if Google Pay isn't installed
-    setTimeout(() => {
-      window.location.href = gpayPlayStoreLink;
-    }, 2500); // Adjust the timeout duration as necessary
   };
 
 
@@ -56,11 +59,3 @@ const QRFreshersRealTime = ({ amount, verificationCode, selectedApp }) => {
   );
 };
 export default QRFreshersRealTime;
-
-//chaitusane777-1@okicici
-//Chaitu%20Sane
-// pa: Payee Address (Your UPI ID)
-// pn: Payee Name (Your name)
-// am: Amount
-// cu: Currency (INR for Indian Rupees)
-// tn: Transaction note (optional)
