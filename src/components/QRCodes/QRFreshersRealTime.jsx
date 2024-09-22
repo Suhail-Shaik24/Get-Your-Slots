@@ -9,13 +9,7 @@ const QRFreshersRealTime = ({ amount, verificationCode, selectedApp }) => {
 
   const upiUrl = `upi://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}`;
 
-  // GPay specific UPI deep link with Android intent
-  const gpayLink = `intent://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
-  // const gpayPlayStoreLink = 'https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.paisa.user';
-
-  //Paytm specific UPI deep link with Android intent
   const paytmLink = `intent://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}#Intent;scheme=paytm;package=com.paytm.app;end`;
-  // const paytmPlayStoreLink = 'https://play.google.com/store/apps/details?id=com.paytm.app';
 
   const handlePayment = () => {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -27,18 +21,15 @@ const QRFreshersRealTime = ({ amount, verificationCode, selectedApp }) => {
         const gpayLink = `intent://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
         window.location.href = gpayLink;
       } else if (isIOS) {
-        // Open Google Pay UPI link for iOS (generic UPI link)
-        const gpayUrl = `upi://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}`;
-        window.location.href = gpayUrl;
+        // Use direct UPI link for iOS
+        window.location.href = upiUrl;
       }
     } else if (selectedApp === "Paytm") {
+      // Use Paytm link for Android and generic UPI link for iOS
       if (isAndroid) {
-        const paytmLink = `intent://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}#Intent;scheme=paytm;package=com.paytm.app;end`;
         window.location.href = paytmLink;
       } else if (isIOS) {
-        // Open a generic UPI link for Paytm on iOS
-        const paytmUrl = `upi://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}`;
-        window.location.href = paytmUrl;
+        window.location.href = upiUrl; // Generic UPI link for iOS
       }
     }
   };

@@ -106,7 +106,7 @@ const FormRealTime = () => {
   const memoizedQRCode = useMemo(() => {
     return selectedApp ? (
       <div className="transition-all duration-700 ease-in-out">
-        <QRFreshersRealTime amount={formData.paymentAmount} verificationCode={verificationCode} selectedApp={selectedApp}/>
+        <QRFreshersRealTime amount={formData.paymentAmount} verificationCode={verificationCode} selectedApp={selectedApp} />
       </div>
     ) : null;
   }, [formData.paymentAmount, verificationCode, selectedApp]);
@@ -328,6 +328,10 @@ const FormRealTime = () => {
                     </div>
 
                   </div>
+                  <p className="text-center text-red-500 font-semibold mb-3">
+                    Note: Please use only Google Pay or Paytm to complete the payment.
+                  </p>
+
 
                   {/* QR Code and Checkbox */}
                   {selectedApp && (
