@@ -9,10 +9,8 @@ const QRFreshersRealTime = ({ amount, verificationCode, selectedApp }) => {
 
   const upiUrl = `upi://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}`;
 
-  const paytmLink = `intent://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}#Intent;scheme=paytm;package=com.paytm.app;end`;
-
   const handlePayment = () => {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const userAgent = navigator.userAgent;
     const isAndroid = /android/i.test(userAgent);
     const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
 
@@ -25,12 +23,8 @@ const QRFreshersRealTime = ({ amount, verificationCode, selectedApp }) => {
         window.location.href = upiUrl;
       }
     } else if (selectedApp === "Paytm") {
-      // Use Paytm link for Android and generic UPI link for iOS
-      if (isAndroid) {
-        window.location.href = paytmLink;
-      } else if (isIOS) {
-        window.location.href = upiUrl; // Generic UPI link for iOS
-      }
+      // Use generic UPI link for both Android and iOS
+      window.location.href = paytmLink;
     }
   };
 
