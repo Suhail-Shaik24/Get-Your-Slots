@@ -11,11 +11,11 @@ const QRFreshersRealTime = ({ amount, verificationCode, selectedApp }) => {
 
   // GPay specific UPI deep link with Android intent
   const gpayLink = `intent://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
-  const gpayPlayStoreLink = 'https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.paisa.user';
+  // const gpayPlayStoreLink = 'https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.paisa.user';
 
   //Paytm specific UPI deep link with Android intent
   const paytmLink = `intent://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}#Intent;scheme=paytm;package=com.paytm.app;end`;
-  const paytmPlayStoreLink = 'https://play.google.com/store/apps/details?id=com.paytm.app';
+  // const paytmPlayStoreLink = 'https://play.google.com/store/apps/details?id=com.paytm.app';
 
   const handlePayment = () => {
     if (selectedApp === "GooglePay") {
