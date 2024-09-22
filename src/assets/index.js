@@ -26,9 +26,11 @@ import Instagram from "./Instagram.png";
 import X from './X.png';
 import LinkedIn from './LinkedIn.svg';
 import YouTube from './YouTube.svg';
-import GooglePay from './googlepay-color.svg';
-import Paytm from './paytm-color.svg';
-import PhonePe from './phonepe-color.svg';
+import GooglePay from './google-pay-icon.svg';
+import Paytm from './paytm-icon.svg';
+// import PhonePe from './phonepe-color.svg';
+import Slice from "./Slice.svg"
+import GooglePay2 from "./Google-Pay-2.svg" 
 
 export{
 
@@ -61,7 +63,8 @@ export{
     LinkedIn,
     YouTube,
     GooglePay,
-    PhonePe,
-    Paytm
-    
+    // PhonePe,
+    Paytm,
+    GooglePay2,
+    Slice    
 }

@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 import { Navbar, ContactUs, QRFreshersRealTime } from '../components';
-import { ArrowWhite, ArrowBlack, GooglePay, Paytm, PhonePe } from '../assets';
+import { ArrowWhite, ArrowBlack, GooglePay2, Paytm } from '../assets';
 import '../css/Form.css';
 
 const FormRealTime = () => {
@@ -12,6 +12,7 @@ const FormRealTime = () => {
   const [currentPage, setCurrentPage] = useState(1); // Track current page (1 = info, 2 = payment)
   const [verificationCode, setVerificationCode] = useState(''); // Store the generated verification code
   const [isChecked, setIsChecked] = useState(false);
+  const [selectedApp, setSelectedApp] = useState(null);
 
   const [formData, setFormData] = useState({
     FirstName: '',
@@ -21,7 +22,6 @@ const FormRealTime = () => {
     VisaType: '',
     RealTimeAlertsPrice: '',
     paymentApp: 'GooglePay',  // Default value
-    paymentAppOther: ''   // For "Other" option
   });
 
   const handleInputChange = (e) => {
@@ -75,19 +75,13 @@ const FormRealTime = () => {
   const handleCheckboxChange = (e) => {
     setIsChecked(e.target.checked);
   };
-  const handleSelectChange = (e) => {
-    const { value } = e.target;
+
+  // Handle payment app selection without submitting the form
+  const handleAppSelection = (app) => {
+    setSelectedApp(app);
     setFormData((prevData) => ({
       ...prevData,
-      paymentApp: value,
-      paymentAppOther: ''  // Reset the "Other" input when the dropdown is changed
-    }));
-  };
-  const handleOtherInputChange = (e) => {
-    const { value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      paymentAppOther: value
+      paymentApp: app,
     }));
   };
 
@@ -108,13 +102,17 @@ const FormRealTime = () => {
     }
   }, [currentPage]);
 
-
-
   // Memoize QR Code to prevent re-renders when other inputs change
   const memoizedQRCode = useMemo(() => {
-    return <QRFreshersRealTime amount={formData.paymentAmount} verificationCode={verificationCode} />;
-  }, [formData.paymentAmount, verificationCode]);
+    return selectedApp ? (
+      <div className="transition-all duration-700 ease-in-out">
+        <QRFreshersRealTime amount={formData.paymentAmount} verificationCode={verificationCode} />
+      </div>
+    ) : null;
+  }, [formData.paymentAmount, verificationCode, selectedApp]);
 
+  // Check if submit button should be enabled
+  const isSubmitEnabled = selectedApp && isChecked;
 
   return (
     <div className="p-4 md:p-5 lg:p-12 flex flex-col gap-3">
@@ -309,66 +307,51 @@ const FormRealTime = () => {
               {currentPage === 2 && (
                 <form className="flex flex-col gap-4" onSubmit={handlePaymentSubmit}>
                   {/* Second Page: Payment */}
-                  <h2 className="text-2xl font-bold">Payment Section</h2>
+                  <h2 className="text-3xl font-bold text-center mb-6">Payment Section</h2>
+                  <h3 className="text-lg text-gray-700 mb-4 text-center">Select a Payment App to make a Payment</h3>
 
-                  {/* displaying qr code */}
-                  {memoizedQRCode}
-                  <div className='payment-checkbox flex flex-col gap-3 p-4 border rounded-md bg-gray-50 hover:bg-gray-100'>
-                    <div className="payment-confirmation flex items-center gap-2">
-                      <input
-                        className='w-6 h-6 hover:cursor-pointer focus:ring-blue-500 focus:ring-2'
-                        type="checkbox"
-                        required
-                        id="payment-confirmation"
-                        onChange={handleCheckboxChange} // Handle checkbox change
-                      />
-                      <label
-                        className='text-xl font-bold text-gray-700 hover:text-gray-900 cursor-pointer select-none'
-                        htmlFor="payment-confirmation"
-                      >
-                        I have made the Payment
-                      </label>
+                  {/* Payment Apps */}
+                  <div className="paymentApps grid grid-cols-2 gap-6 items-center justify-center">
+                    <div
+                      className={`GPay flex flex-col items-center bg-white border-2 h-24 p-3 rounded-xl justify-center hover:bg-gray-100 transition-all duration-300 ease-in-out cursor-pointer ${selectedApp === 'GooglePay' ? 'ring-2 ring-[#a3663c] bg-gray-100' : ''}`}
+                      onClick={() => handleAppSelection('GooglePay')}
+                    >
+                      <img className="w-36 mb-2" src={GooglePay2} alt="GPay" />
+                      <span className="text-sm text-gray-700">Google Pay</span>
+                    </div>
+                    <div
+                      className={`Paytm flex flex-col items-center bg-white border-2 h-24 p-3 rounded-xl justify-center hover:bg-gray-100 transition-all duration-300 ease-in-out cursor-pointer ${selectedApp === 'Paytm' ? 'ring-2 ring-[#a3663c] bg-gray-100' : ''}`}
+                      onClick={() => handleAppSelection('Paytm')}
+                    >
+                      <img className="w-24 mb-2" src={Paytm} alt="Paytm" />
+                      <span className="text-sm text-gray-700">Paytm</span>
                     </div>
 
-                    {/* Conditionally render payment-app dropdown based on checkbox status */}
-                    {isChecked && (
-                      <div className="payment-app space-y-4">
-                        <label
-                          htmlFor="payment-app"
-                          className="block text-xl font-medium text-gray-700"
-                        >
-                          Which app have you used for Payment?
-                        </label>
-
-                        <select
-                          name="paymentApp"
-                          id="payment-app"
-                          onChange={handleSelectChange}
-                          value={formData.paymentApp}
-                          required
-                          className="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                        >
-                          <option value="GooglePay">GooglePay</option>
-                          <option value="PhonePay">PhonePay</option>
-                          <option value="Paytm">Paytm</option>
-                          <option value="Other">Other</option>
-                        </select>
-
-                        {/* Show input field when "Other" is selected */}
-                        {formData.paymentApp === 'Other' && (
-                          <input
-                            type="text"
-                            placeholder="Enter payment app"
-                            name="paymentAppOther"
-                            value={formData.paymentAppOther || ''}
-                            onChange={handleOtherInputChange}
-                            className="block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                          />
-                        )}
-                      </div>
-                    )}
                   </div>
 
+                  {/* QR Code and Checkbox */}
+                  {selectedApp && (
+                    <div className="transition-opacity duration-500 ease-in-out opacity-100 mt-6">
+                      {memoizedQRCode}
+                      <div className="payment-checkbox mt-4 flex items-center gap-2 p-3 border rounded-md bg-gray-50 hover:bg-gray-100">
+                        <input
+                          className="w-6 h-6 cursor-pointer"
+                          type="checkbox"
+                          required
+                          id="payment-confirmation"
+                          onChange={handleCheckboxChange}
+                        />
+                        <label
+                          className="text-base lg:text-xl font-bold text-gray-700 cursor-pointer"
+                          htmlFor="payment-confirmation"
+                        >
+                          I have made the Payment
+                        </label>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Navigation Buttons */}
                   <button
                     type="button"
                     value="back"
@@ -381,7 +364,8 @@ const FormRealTime = () => {
                   <button
                     type="submit"
                     value="submit"
-                    className="submit-button flex bg-[#A3663C] text-lg lg:text-xl text-white font-semibold p-2 lg:p-3 px-5 lg:px-10 rounded-full gap-2 items-center justify-center hover:cursor-pointer">
+                    disabled={!isSubmitEnabled} // Disable button if conditions are not met
+                    className={`submit-button flex bg-${isSubmitEnabled ? '[#A3663C]' : 'gray-300'} text-lg lg:text-xl text-white font-semibold p-2 lg:p-3 px-5 lg:px-10 rounded-full gap-2 items-center justify-center hover:cursor-pointer ${!isSubmitEnabled && 'cursor-not-allowed'}`}>
                     <p>Submit</p>
                     <img className='w-5 hover:cursor-pointer' src={ArrowWhite} alt="Arrow" />
                   </button>

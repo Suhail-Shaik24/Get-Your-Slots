@@ -23,7 +23,7 @@ const Features = forwardRef(({scrollToRealTime, scrollToVisaSlotBooking}, ref) =
               <p>Never miss out on a visa slot again! With our Real-Time Alerts, you'll get quick notifications as soon as new slots are available. It's like having a personal assistant to keep you informed and help you book your slot quickly and easily.</p>
             </div>
             <button 
-              className='bg-white w-4/5 border border-[#A3663C] text-black text-[12px] p-2 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-sm sml:p-2 sml:px-3 md:text-sm md:p-2 md:px-3 md:rounded-md lg:text-base lg:p-3 lg:px-5 lg:rounded-md' 
+              className='bg-white w-fit border border-[#A3663C] text-black text-[12px] p-2 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-sm sml:p-2 sml:px-3 md:text-sm md:p-2 md:px-3 md:rounded-md lg:text-base lg:p-3 lg:px-5 lg:rounded-md' 
               type="button"
               onClick={scrollToRealTime}>
               <p>Get Real time Alerts</p>
@@ -51,7 +51,7 @@ const Features = forwardRef(({scrollToRealTime, scrollToVisaSlotBooking}, ref) =
               <p> Make booking your visa simple with our easy-to-use platform. Whether you're applying for work, study, or travel, our service helps you every step of the way. Enjoy a smooth booking experience with clear instructions and reliable support, so you can focus on your journey </p>
             </div>
             <button 
-              className='bg-white w-3/5 border border-[#A3663C] text-black text-[12px] p-2 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-sm sml:p-2 sml:px-3 md:text-sm md:p-2 md:px-3 md:rounded-md lg:text-base lg:p-3 lg:px-5 lg:rounded-md' 
+              className='bg-white w-fit border border-[#A3663C] text-black text-[12px] p-2 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-sm sml:p-2 sml:px-3 md:text-sm md:p-2 md:px-3 md:rounded-md lg:text-base lg:p-3 lg:px-5 lg:rounded-md' 
               type="button"
               onClick={scrollToVisaSlotBooking}>
               <p>Book a Visa Slot</p>
