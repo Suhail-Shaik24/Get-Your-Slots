@@ -38,6 +38,9 @@ const QRFreshersRealTime = ({ amount, verificationCode, selectedApp }) => {
       <p className="text-center text-red-500 mb-3 p-4 bg-red-100 border border-red-500 rounded-lg shadow-md text-sm md:text-base lg:hidden" >
         Note: Make sure to <span className="font-bold">Come Back and Submit the Form </span> after the Payment.
       </p>
+      <p className="text-center text-red-500 mb-3 p-4 bg-red-100 border border-red-500 rounded-lg shadow-md text-sm md:text-base hidden lg:block" >
+        Note: Make sure to <span className="font-bold">Submit the Form </span> after the Payment.
+      </p>
 
       <p className="lg:hidden">or Scan the QR Code</p>
       <h3 className="hidden text-lg font-semibold lg:block"> Scan the QR Code to make the Payment</h3>
