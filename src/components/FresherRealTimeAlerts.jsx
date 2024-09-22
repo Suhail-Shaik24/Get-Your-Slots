@@ -24,7 +24,7 @@ const FresherRealTimeAlerts = () => {
                         <Provisions1 />
                     </div>
                     <button
-                        className='bg-[#A3663C] w-3/5 border text-white text-[12px] p-1 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-[10px] sml:p-2 md:text-xs md:p-2 md:w-4/5 md:rounded-md lg:text-sm lg:p-2 lg:px-5 lg:rounded-md'
+                        className='bg-[#A3663C] w-fit border text-white text-[12px] p-1 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-[10px] sml:p-2 md:text-xs md:p-2 md:w-4/5 md:rounded-md lg:text-sm lg:p-2 lg:px-5 lg:rounded-md'
                         type="button"
                         onClick={handleButtonClick}>
                         <p>Get Started</p>
@@ -38,7 +38,7 @@ const FresherRealTimeAlerts = () => {
                         <Provisions1 />
                     </div>
                     <button
-                        className='bg-[#A3663C] w-3/5 border text-white text-[12px] p-1 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-[10px] sml:p-2 md:text-xs md:p-2 md:w-4/5 md:rounded-md lg:text-sm lg:p-2 lg:px-5 lg:rounded-md'
+                        className='bg-[#A3663C] w-fit border text-white text-[12px] p-1 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-[10px] sml:p-2 md:text-xs md:p-2 md:w-4/5 md:rounded-md lg:text-sm lg:p-2 lg:px-5 lg:rounded-md'
                         type="button"
                         onClick={handleButtonClick}>
                         <p>Get Started</p>
@@ -52,7 +52,7 @@ const FresherRealTimeAlerts = () => {
                         <Provisions1 />
                     </div>
                     <button
-                        className='bg-[#A3663C] w-3/5 border text-white text-[12px] p-1 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-[10px] sml:p-2 md:text-xs md:p-2 md:w-4/5 md:rounded-md lg:text-sm lg:p-2 lg:px-5 lg:rounded-md'
+                        className='bg-[#A3663C] w-fit border text-white text-[12px] p-1 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-[10px] sml:p-2 md:text-xs md:p-2 md:w-4/5 md:rounded-md lg:text-sm lg:p-2 lg:px-5 lg:rounded-md'
                         type="button"
                         onClick={handleButtonClick}>
                         <p>Get Started</p>
@@ -66,7 +66,7 @@ const FresherRealTimeAlerts = () => {
                         <Provisions1 />
                     </div>
                     <button
-                        className='bg-[#A3663C] w-3/5 border text-white text-[12px] p-1 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-[10px] sml:p-2 md:text-xs md:p-2 md:w-4/5 md:rounded-md lg:text-sm lg:p-2 lg:px-5 lg:rounded-md'
+                        className='bg-[#A3663C] w-fit border text-white text-[12px] p-1 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-[10px] sml:p-2 md:text-xs md:p-2 md:w-4/5 md:rounded-md lg:text-sm lg:p-2 lg:px-5 lg:rounded-md'
                         type="button"
                         onClick={handleButtonClick}>
                         <p>Get Started</p>

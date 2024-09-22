@@ -35,8 +35,8 @@ const QRFreshersRealTime = ({ amount, verificationCode, selectedApp }) => {
       <h2 className="text-xl font-bold font-['Open_Sans']font-semibold mb-2 text-center">Proceed to Pay <br /> <span className="text-4xl"> ₹{amount} </span></h2>
 
       <button type="button" className=" font-bold text-white text-lg bg-[#2e358f] p-3 rounded lg:hidden" onClick={handlePayment}>Tap here to Pay</button>
-      <p className="text-center text-red-500 font-semibold mb-3 p-4 bg-red-100 border border-red-500 rounded-lg shadow-md text-sm md:text-base lg:hidden" >
-        Note: Make sure to come back and Submit the form after the Payment.
+      <p className="text-center text-red-500 mb-3 p-4 bg-red-100 border border-red-500 rounded-lg shadow-md text-sm md:text-base lg:hidden" >
+        Note: Make sure to <span className="font-bold">Come Back and Submit the Form </span> after the Payment.
       </p>
 
       <p className="lg:hidden">or Scan the QR Code</p>
