@@ -24,7 +24,7 @@ const QRFreshersRealTime = ({ amount, verificationCode, selectedApp }) => {
       }
     } else if (selectedApp === "Paytm") {
       // Use generic UPI link for both Android and iOS
-      window.location.href = paytmLink;
+      window.location.href = upiUrl;
     }
   };
 
@@ -34,7 +34,7 @@ const QRFreshersRealTime = ({ amount, verificationCode, selectedApp }) => {
     <div className="border-2 border-[#a3663c] w-full p-4 rounded-lg flex flex-col gap-3 justify-center items-center bg-gray-100 shadow-lg">
       <h2 className="text-xl font-bold font-['Open_Sans']font-semibold mb-2 text-center">Proceed to Pay <br /> <span className="text-4xl"> ₹{amount} </span></h2>
 
-      <button className=" font-bold text-white text-lg bg-[#2e358f] p-3 rounded lg:hidden" onClick={handlePayment}>Tap here to Pay</button>
+      <button type="button" className=" font-bold text-white text-lg bg-[#2e358f] p-3 rounded lg:hidden" onClick={handlePayment}>Tap here to Pay</button>
 
       <p className="lg:hidden">or Scan the QR Code</p>
       <h3 className="hidden text-lg font-semibold lg:block"> Scan the QR Code to make the Payment</h3>
