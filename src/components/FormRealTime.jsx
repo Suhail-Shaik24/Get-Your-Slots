@@ -328,7 +328,7 @@ const FormRealTime = () => {
                     </div>
 
                   </div>
-                  <p className="text-center text-red-500 font-semibold mb-3">
+                  <p className="text-center text-red-500 font-semibold mb-3 p-4 bg-red-100 border border-red-500 rounded-lg shadow-md text-sm lg:text-base md:text-base" >
                     Note: Please use only Google Pay or Paytm to complete the payment.
                   </p>
 
