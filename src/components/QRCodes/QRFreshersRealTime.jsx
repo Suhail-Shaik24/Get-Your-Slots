@@ -9,6 +9,7 @@ const QRFreshersRealTime = ({ amount, verificationCode, selectedApp }) => {
 
   const upiUrl = `upi://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}`;
   const gpayLink = `intent://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
+  const iosGpay = `gpay://${upiUrl}`
 
 
   const userAgent = navigator.userAgent;
@@ -27,7 +28,7 @@ const QRFreshersRealTime = ({ amount, verificationCode, selectedApp }) => {
       {isIOS ? (
         // For iOS: Use anchor tag with the generic UPI URL
         <a
-          href={upiUrl}
+          href={iosGpay}
           className="font-bold text-white text-lg bg-[#2e358f] p-3 rounded lg:hidden text-center">
           Tap here to Pay
         </a>
