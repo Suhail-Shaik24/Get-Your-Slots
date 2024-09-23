@@ -46,18 +46,12 @@ const FormRefusedVisaRealTime = () => {
 
   const handlePaymentSubmit = (e) => {
     e.preventDefault();
-
-    // Validate the form data
-    if (!formData.FirstName || !formData.LastName || !formData.PhoneNumber || !formData.RealTimeAlertsPrice) {
-      alert('Please Fill All the Required Fields.');
-      return;
-    }
+    // Show loading spinner
+    setLoading(true);
 
     // If the form is valid, process the form submission
     console.log('Form data submitted:', formData);
 
-    // Show loading spinner
-    setLoading(true);
 
     // API request (using fetch)
     fetch('https://us-central1-getyourslots-3bf5f.cloudfunctions.net/addRefusedRealTimeAlert', {
@@ -116,7 +110,7 @@ const FormRefusedVisaRealTime = () => {
   const memoizedQRCode = useMemo(() => {
     return selectedApp ? (
       <div className="transition-all duration-700 ease-in-out">
-        <QRFreshersRealTime amount={formData.paymentAmount} verificationCode={verificationCode} />
+        <QRFreshersRealTime amount={formData.paymentAmount} verificationCode={verificationCode} selectedApp={selectedApp} />
       </div>
     ) : null;
   }, [formData.paymentAmount, verificationCode, selectedApp]);

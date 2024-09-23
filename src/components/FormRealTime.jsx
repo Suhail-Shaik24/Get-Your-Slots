@@ -8,11 +8,12 @@ import '../css/Form.css';
 const FormRealTime = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false); // Added loading state
-  const [visaType, setVisaType] = useState('');
   const [currentPage, setCurrentPage] = useState(1); // Track current page (1 = info, 2 = payment)
   const [verificationCode, setVerificationCode] = useState(''); // Store the generated verification code
   const [isChecked, setIsChecked] = useState(false);
   const [selectedApp, setSelectedApp] = useState(null);
+  
+  const [visaType, setVisaType] = useState('');
 
   const [formData, setFormData] = useState({
     FirstName: '',
