@@ -10,6 +10,7 @@ const QRFreshersRealTime = ({ amount, verificationCode, selectedApp }) => {
   const upiUrl = `upi://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}`;
   const gpayLink = `intent://pay?pa=${UPI_ID}&pn=${NAME}&am=${amount}&cu=INR&tn=${verificationCode}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
   const iosGpay = `gpay://${upiUrl}`
+  const iosPaytm = `paytm://${upiUrl}`
 
 
   const userAgent = navigator.userAgent;
