@@ -19,9 +19,9 @@ const RejectedVISARealTimeAlerts = () => {
     return (
         <div className='flex flex-col gap-2'>
 
-            <h2 className='text-sm lg:text-xl w-fit bg-white rounded-r-full p-2 lg:p-3'> <strong>Refused Visa</strong> <span className='text-xs lg:text-base'>- Get Real Time Alerts For Refused Visa </span> </h2>
+            <h2 className='text-sm lg:text-xl w-fit bg-white rounded-r-full p-2  pr-5 lg:p-3'> <strong>Refused Visa</strong> <span className='text-xs lg:text-base'>- Get Real Time Alerts For Refused Visa </span> </h2>
 
-            <div className="refusedVisa-plans-container grid grid-cols-2 gap-2 lg:gap-4 sml:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 justify-center items-center ">
+            <div className="refusedVisa-plans-container grid grid-cols-2 gap-2 lg:gap-4 sml:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 justify-center items-center ">
                 {plans.map((plan) => (
                     <button
                         key={plan.id}

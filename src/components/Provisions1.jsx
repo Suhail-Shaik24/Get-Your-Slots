@@ -5,7 +5,7 @@ const ProvisionItem = ({ icon, alt, text }) => (
   <li className='flex flex-col gap-[2px] lg:gap-2'>
     <div className="text flex gap-[6px] lg:gap-2 items-center">
       <img className='w-4 lg:w-5' src={icon} alt={alt} />
-      <p className='text-[8px] lg:text-sm text-black'>{text}</p>
+      <p className='text-xs lg:text-sm text-black'>{text}</p>
     </div>
     <hr className='bg-[#a3663c]' />
   </li>

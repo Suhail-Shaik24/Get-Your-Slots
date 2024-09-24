@@ -22,7 +22,7 @@ const VisaSlots = () => {
                 <h1 className='text-xl lg:text-3xl text-white font-bold'> Visa Slot Booking </h1>
                 <hr className='bg-white h-[0.125rem] rounded-full w-3/4' />
             </div>
-            <div className="visa-slot-booking-plans grid grid-cols-2 gap-2 lg:gap-4 sml:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 justify-center items-center">
+            <div className="visa-slot-booking-plans grid grid-cols-2 gap-2 lg:gap-4 sml:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 justify-center items-center">
                 {plans.map((plan) => (
                     <button
                         key={plan.id}
