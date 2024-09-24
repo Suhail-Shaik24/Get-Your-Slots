@@ -15,6 +15,8 @@ const TestimonialsArray = () => {
     { id: 8, author: "Atharva", content: "One of the genuine service provider for all the visa information." },
     { id: 9, author: "Nagaraju", content: "It is a great place for finding visa slots. It helped me a lot." },
     { id: 10, author: "Vivek", content: "So useful and since it was not delayed alerts. It was very much helpful and informative." },
+    { id: 11, author: "Nagaraju", content: "It is a great place for finding visa slots. It helped me a lot." },
+    { id: 12, author: "Armaan", content: "This is very useful for all of us who wait for hours to book their slots. Thank you." },
   ])
   return (
     <>

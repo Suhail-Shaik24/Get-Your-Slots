@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className='bg-[#E6E4E2]'>
+    <div className='bg-[#E6E4E2] overflow-hidden'>
       <HashRouter>
         <ScrollToTop />
         <Routes>
