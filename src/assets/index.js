@@ -22,7 +22,7 @@ import Gmail from "./Gmail-2.svg";
 import TechnicalSupport from "./Technical-Support.svg";
 import TechnicalSupportWhite from "./Technical-Support-White.svg";
 import Calender from "./calender.svg";
-import CalenderWhite from "./calender-White.svg";
+import CalenderWhite from "./calender-white.svg";
 import Logo2 from "./logo-1.svg";
 import Hamburger from "./hamburger.svg";
 import SmallRectangle from "./Small-Rectangle.svg";
