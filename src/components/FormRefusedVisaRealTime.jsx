@@ -120,7 +120,7 @@ const FormRefusedVisaRealTime = () => {
 
 
   return (
-    <div className="p-4 md:p-5 lg:p-12 flex flex-col gap-3">
+    <div className="flex flex-col gap-3 p-4 md:p-5 lg:p-12">
       <Navbar />
 
       <div className='flex flex-col items-center justify-center h-full font-[Open_Sans]'>
@@ -131,20 +131,20 @@ const FormRefusedVisaRealTime = () => {
 
         <div className="form-super-container -mt-60 lg:-mt-56 w-[96%] p-6 lg:p-12 lg:px-20 bg-white rounded-lg lg:rounded-xl border-2 border-[#a3663c] flex flex-col gap-6 lg:gap-8">
           {loading ? ( // Display loading spinner when loading
-            <div className="flex justify-center items-center h-40">
+            <div className="flex items-center justify-center h-40">
               <ReactLoading type="bubbles" color="#A3663C" height={100} width={100} />
             </div>
           ) : (
             <>
               {currentPage === 1 && (
                 <form
-                  className='form flex flex-col gap-4 md:gap-6 lg:gap-8'
+                  className='flex flex-col gap-4 form md:gap-6 lg:gap-8'
                   onSubmit={handleNext}
                 >
 
-                  <div className="names grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
-                    <div className="firstName flex flex-col gap-3">
-                      <label className='text-base lg:text-lg font-semibold'> First Name: </label>
+                  <div className="grid justify-between w-full grid-cols-1 gap-4 names md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2">
+                    <div className="flex flex-col gap-3 firstName">
+                      <label className='text-base font-semibold lg:text-lg'> First Name: </label>
                       <input
                         className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
                         type="text"
@@ -154,8 +154,8 @@ const FormRefusedVisaRealTime = () => {
                         placeholder='First Name'
                         required />
                     </div>
-                    <div className="lastName flex flex-col gap-3">
-                      <label className='text-base lg:text-lg font-semibold'> Last Name: </label>
+                    <div className="flex flex-col gap-3 lastName">
+                      <label className='text-base font-semibold lg:text-lg'> Last Name: </label>
                       <input
                         className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
                         type="text"
@@ -167,9 +167,9 @@ const FormRefusedVisaRealTime = () => {
                     </div>
                   </div>
 
-                  <div className="contact grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
-                    <div className="phone-number flex flex-col gap-3">
-                      <label className='text-base lg:text-lg font-semibold' > Phone Number (WhatsApp): </label>
+                  <div className="grid justify-between w-full grid-cols-1 gap-4 contact md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2">
+                    <div className="flex flex-col gap-3 phone-number">
+                      <label className='text-base font-semibold lg:text-lg' > Phone Number (WhatsApp): </label>
                       <input
                         className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
                         type="tel"
@@ -180,8 +180,8 @@ const FormRefusedVisaRealTime = () => {
                         pattern="[0-9]{10}"
                         required />
                     </div>
-                    <div className="email flex flex-col gap-3">
-                      <label className='text-base lg:text-lg font-semibold' > Email: </label>
+                    <div className="flex flex-col gap-3 email">
+                      <label className='text-base font-semibold lg:text-lg' > Email: </label>
                       <input
                         className='border-2 border-[#a3663c] rounded-lg lg:w-96 p-3 h-10'
                         type="email"
@@ -193,14 +193,14 @@ const FormRefusedVisaRealTime = () => {
                   </div>
 
                   {/* Visa Type and Appointment Selection */}
-                  <div className="visa-type-details grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2 justify-between w-full">
+                  <div className="grid justify-between w-full grid-cols-1 gap-4 visa-type-details md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-2">
                     {/* VISA Type Selection */}
-                    <div className="visa-type flex flex-col gap-2">
-                      <div className="heading flex flex-col gap-1">
-                        <h1 className='text-base lg:text-lg font-semibold'>VISA Type</h1>
+                    <div className="flex flex-col gap-2 visa-type">
+                      <div className="flex flex-col gap-1 heading">
+                        <h1 className='text-base font-semibold lg:text-lg'>VISA Type</h1>
                         <hr className='bg-[#a3663c] rounded-full h-[0.125rem] w-3/4' />
                       </div>
-                      <div className="option1 flex ">
+                      <div className="flex option1 ">
                         <input
                           className='radio-button'
                           type="radio"
@@ -209,21 +209,21 @@ const FormRefusedVisaRealTime = () => {
                           value="F1-Visa"
                           required
                           onChange={handleInputChange} />
-                        <label className='label-name text-base lg:text-lg font-semibold w-2/4' for="F1-Visa">F1 Visa</label>
+                        <label className='w-2/4 text-base font-semibold label-name lg:text-lg' for="F1-Visa">F1 Visa</label>
                       </div>
                     </div>
                   </div>
 
                   {/* Subscription Plans Selection */}
-                  <div className="subscription-pricing grid grid-col-1 lg:grid-cols-2">
-                    <div className="visa-slot-booking-price flex flex-col gap-2">
-                      <div className="heading flex flex-col gap-1">
-                        <h1 className='text-base lg:text-lg font-semibold'> Subscription Plans <span className='text-sm'>(Select One)</span>:</h1>
+                  <div className="grid subscription-pricing grid-col-1 lg:grid-cols-2">
+                    <div className="flex flex-col gap-2 visa-slot-booking-price">
+                      <div className="flex flex-col gap-1 heading">
+                        <h1 className='text-base font-semibold lg:text-lg'> Subscription Plans <span className='text-sm'>(Select One)</span>:</h1>
                         <hr className='bg-[#a3663c] rounded-full h-[0.125rem] w-11/12' />
                       </div>
-                      <div className="f1-plan flex flex-col gap-2">
-                        <div className="options flex flex-col gap-1 ">
-                          <div className="option1 flex ">
+                      <div className="flex flex-col gap-2 f1-plan">
+                        <div className="flex flex-col gap-1 options ">
+                          <div className="flex option1 ">
                             <input
                               className='radio-button'
                               type="radio"
@@ -233,9 +233,9 @@ const FormRefusedVisaRealTime = () => {
                               data-amount="1299"
                               onChange={handleInputChange}
                               required />
-                            <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-1"> ₹1299/30days </label>
+                            <label className='w-2/4 text-base font-semibold label-name lg:text-lg' htmlFor="plan-1"> ₹1299/30days </label>
                           </div>
-                          <div className="option2 flex">
+                          <div className="flex option2">
                             <input
                               className='radio-button'
                               type="radio"
@@ -245,7 +245,7 @@ const FormRefusedVisaRealTime = () => {
                               data-amount="1799"
                               onChange={handleInputChange}
                               required />
-                            <label className='label-name text-base lg:text-lg font-semibold w-2/4' htmlFor="plan-2">₹1799/40 days</label>
+                            <label className='w-2/4 text-base font-semibold label-name lg:text-lg' htmlFor="plan-2">₹1799/40 days</label>
                           </div>
                         </div>
                       </div>
@@ -265,16 +265,16 @@ const FormRefusedVisaRealTime = () => {
               {currentPage === 2 && (
                 <form className="flex flex-col gap-4" onSubmit={handlePaymentSubmit}>
                   {/* Second Page: Payment */}
-                  <h2 className="text-3xl font-bold text-center mb-6">Payment Section</h2>
-                  <h3 className="txt-base lg:text-lg text-gray-700 mb-4 text-center">Select a Payment App to make a Payment</h3>
+                  <h2 className="mb-6 text-3xl font-bold text-center">Payment Section</h2>
+                  <h3 className="mb-4 text-center text-gray-700 txt-base lg:text-lg">Select a Payment App to make a Payment</h3>
 
                   {/* Payment Apps */}
-                  <div className="paymentApps grid grid-cols-2 gap-6 items-center justify-center">
+                  <div className="grid items-center justify-center grid-cols-2 gap-6 paymentApps">
                     <div
                       className={`GPay flex flex-col items-center bg-white border-2 h-24 p-3 rounded-xl justify-center hover:bg-gray-100 transition-all duration-300 ease-in-out cursor-pointer ${selectedApp === 'GooglePay' ? 'ring-2 ring-[#a3663c] bg-gray-100' : ''}`}
                       onClick={() => handleAppSelection('GooglePay')}
                     >
-                      <img className="w-36 mb-2" src={GooglePay2} alt="GPay" />
+                      <img className="mb-2 w-36" src={GooglePay2} alt="GPay" />
                       <span className="text-sm text-gray-700">Google Pay</span>
                     </div>
                     <div
@@ -285,7 +285,7 @@ const FormRefusedVisaRealTime = () => {
                       <span className="text-sm text-gray-700">Paytm</span>
                     </div>
                   </div>
-                  <p className="text-center text-red-500 font-semibold mb-3 p-4 bg-red-100 border border-red-500 rounded-lg shadow-md text-sm lg:text-base md:text-base" >
+                  <p className="p-4 mb-3 text-sm font-semibold text-center text-red-500 bg-red-100 border border-red-500 rounded-lg shadow-md lg:text-base md:text-base" >
                     Note: Please use only Google Pay or Paytm to complete the payment.
                   </p>
 
@@ -294,9 +294,9 @@ const FormRefusedVisaRealTime = () => {
 
                   {/* QR Code and Checkbox */}
                   {selectedApp && (
-                    <div className="transition-opacity duration-500 ease-in-out opacity-100 mt-6">
+                    <div className="mt-6 transition-opacity duration-500 ease-in-out opacity-100">
                       {memoizedQRCode}
-                      <div className="payment-checkbox mt-4 flex items-center gap-2 p-3 border rounded-md bg-gray-50 hover:bg-gray-100">
+                      <div className="flex items-center gap-2 p-3 mt-4 border rounded-md payment-checkbox bg-gray-50 hover:bg-gray-100">
                         <input
                           className="w-6 h-6 cursor-pointer"
                           type="checkbox"
@@ -305,7 +305,7 @@ const FormRefusedVisaRealTime = () => {
                           onChange={handleCheckboxChange}
                         />
                         <label
-                          className="text-base lg:text-xl font-bold text-gray-700 cursor-pointer"
+                          className="text-base font-bold text-gray-700 cursor-pointer lg:text-xl"
                           htmlFor="payment-confirmation"
                         >
                           I have made the Payment
@@ -319,15 +319,15 @@ const FormRefusedVisaRealTime = () => {
                     type="button"
                     value="back"
                     onClick={() => setCurrentPage(1)}
-                    className="submit-button flex bg-gray-300 text-base lg:text-lg w-fit font-semibold p-1 lg:p-2 px-5 lg:px-6 rounded-full gap-2 items-center hover:cursor-pointer">
-                    <img className='w-5 hover:cursor-pointer rotate-180 ' src={ArrowBlack} alt="Arrow" />
+                    className="flex items-center gap-2 p-1 px-5 text-base font-semibold bg-gray-300 rounded-full submit-button lg:text-lg w-fit lg:p-2 lg:px-6 hover:cursor-pointer">
+                    <img className='w-5 rotate-180 hover:cursor-pointer ' src={ArrowBlack} alt="Arrow" />
                     <p>Back</p>
                   </button>
 
                   <button
                     type="submit"
                     disabled={!isSubmitEnabled} // Disable button if conditions are not met
-                    className={`submit-button flex bg-${isSubmitEnabled ? '[#A3663C]' : 'gray-300'} text-lg lg:text-xl text-white font-semibold p-2 lg:p-3 px-5 lg:px-10 rounded-full gap-2 items-center justify-center hover:cursor-pointer ${!isSubmitEnabled && 'cursor-not-allowed'}`}>
+                    className={`submit-button flex bg-${isSubmitEnabled ? '[#A3663C]' : 'gray-300'} text-lg lg:text-xl text-white font-semibold p-2 lg:p-3 px-5 lg:px-10 rounded-full gap-2 items-center justify-center ${!isSubmitEnabled && 'cursor-not-allowed'}`}>
                     <p>Submit</p>
                     <img className='w-5 hover:cursor-pointer' src={ArrowWhite} alt="Arrow" />
                   </button>
