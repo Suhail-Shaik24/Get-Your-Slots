@@ -11,7 +11,11 @@ export default {
       },
       gap: {
         'custom': '1rem',
-      }
+      },
+      backgroundImage: {
+        'button-gradient': 'radial-gradient(389.55% 216.33% at 46.69% 50.01%, #8D4523 0%, #BD8E62 33.33%, #CDB17D 66.67%, #E6E4E2 100%)',
+        'radial-gradient' : 'radial-gradient(389.55% 216.33% at 46.69% 50.01%, #8D4523 0%, #BD8E62 33.33%, #CDB17D 66.67%, #E6E4E2 100%)',
+      },
     },
     screens: {
       'sm': '450px',
@@ -29,7 +33,7 @@ export default {
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
       'sml': '500px'
-    }
+    },
   },
   plugins: [],
 }

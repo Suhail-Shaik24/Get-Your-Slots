@@ -10,14 +10,19 @@ import VisaBooking from "./feature2Illustration.png";
 import FeaturesBg from "./featuresBg.png";
 import FeaturesBg2 from "./featuresBg2.png";
 import Clock from "./clock.svg";
+import ClockWhite from "./clock-White.svg"
 import Telegram from "./Telegram.svg";
+import TelegramWhite from "./Telegram-White.svg";
 import Telegram2 from "./Telegram-2.svg";
 import WhatsApp from "./WhatsApp.svg";
+import WhatsAppWhite from "./WhatsApp-White.svg";
 import WhatsApp2 from "./WhatsApp-2.svg";
 import WhatsApp3 from "./WhatsApp-3.svg";
 import Gmail from "./Gmail-2.svg";
 import TechnicalSupport from "./Technical-Support.svg";
+import TechnicalSupportWhite from "./Technical-Support-White.svg";
 import Calender from "./calender.svg";
+import CalenderWhite from "./calender-White.svg";
 import Logo2 from "./logo-1.svg";
 import Hamburger from "./hamburger.svg";
 import SmallRectangle from "./Small-Rectangle.svg";
@@ -30,9 +35,9 @@ import GooglePay from './google-pay-icon.svg';
 import Paytm from './paytm-icon.svg';
 // import PhonePe from './phonepe-color.svg';
 import Slice from "./Slice.svg"
-import GooglePay2 from "./Google-Pay-2.svg" 
+import GooglePay2 from "./Google-Pay-2.svg"
 
-export{
+export {
 
     Logo,
     Logo2,
@@ -45,7 +50,7 @@ export{
     VisaBooking,
     FeaturesBg,
     FeaturesBg2,
-    Clock, 
+    Clock,
     Telegram,
     Telegram2,
     WhatsApp,
@@ -54,6 +59,7 @@ export{
     Gmail,
     TechnicalSupport,
     Calender,
+    CalenderWhite,
     Hamburger,
     SmallRectangle,
     filteredHeroImage,
@@ -66,5 +72,9 @@ export{
     // PhonePe,
     Paytm,
     GooglePay2,
-    Slice    
+    Slice,
+    ClockWhite,
+    TelegramWhite,
+    WhatsAppWhite,
+    TechnicalSupportWhite,
 }

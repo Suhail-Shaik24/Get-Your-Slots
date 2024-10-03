@@ -7,6 +7,7 @@ import Subscriptions from "./Subscriptions";
 import Provisions1 from "./Provisions1";
 import Provisions2 from "./Provisions2";
 import RealTimeAlerts from "./RealTimeAlerts";
+import RealTimePlans from "./RealTimePlans.jsx"
 import FresherRealTimeAlerts from "./FresherRealTimeAlerts.jsx";
 import FormRealTime from "./FormRealTime";
 import RejectedVISARealTimeAlerts from "./RejectedVISARealTimeAlerts.jsx";
@@ -36,6 +37,7 @@ export {
     Provisions1,
     Provisions2,
     RealTimeAlerts,
+    RealTimePlans,
     FresherRealTimeAlerts,
     FormRealTime,
     RejectedVISARealTimeAlerts,

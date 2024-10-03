@@ -11,15 +11,16 @@ const Home = () => {
     return (
         <div>
             <TopPart
-                scrollToFeatures={() => featuresRef.current?.scrollIntoView({ behavior: 'smooth' })}
-                scrollToSubscriptions={() => subscriptionsRef.current?.scrollIntoView({ behavior: 'smooth' })}
-            />
-            <DelayedAlerts/>
-            <Features
                 ref={featuresRef}
                 scrollToRealTime={() => realTimeAlertsRef.current?.scrollIntoView({ behavior: 'smooth' })}
                 scrollToVisaSlotBooking={() => VisaSlotBookingRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
+            <DelayedAlerts/>
+            {/* <Features
+                ref={featuresRef}
+                scrollToRealTime={() => realTimeAlertsRef.current?.scrollIntoView({ behavior: 'smooth' })}
+                scrollToVisaSlotBooking={() => VisaSlotBookingRef.current?.scrollIntoView({ behavior: 'smooth' })}
+            /> */}
             <Subscriptions
                 ref={subscriptionsRef}
                 realTimeAlertsRef={realTimeAlertsRef}
