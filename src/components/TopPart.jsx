@@ -25,7 +25,7 @@ const TopPart = forwardRef(({ scrollToRealTime, scrollToVisaSlotBooking }, ref) 
                         {/* <h4 className='text-[12px] text-center md:text-left lg:text-left sml:text-sm md:text-base lg:text-base lg:leading-6'>Start your VISA journey with <strong className="text-[#a3663c]">GET YOUR SLOTS </strong> with Seamless Appointment management and Real Time Alerts.</h4> */}
 
                     </div>
-                    <div className="flex gap-1 buttons md:gap-2 lg:gap-3">
+                    <div className="flex gap-3 buttons">
                         <button
                             className='bg-[#A3663C] w-fit text-white text-[12px] p-2 font-semibold font-["Open_Sans"] rounded flex gap-2 justify-center items-center sml:text-sm sml:p-2 sml:px-3 md:text-sm md:p-2 md:px-3 md:rounded-md lg:text-base lg:p-3 lg:px-5 lg:rounded-md hover:bg-button-gradient hover:scale-105 transform transition-all duration-300 ease-in-out'
                             type="button"
